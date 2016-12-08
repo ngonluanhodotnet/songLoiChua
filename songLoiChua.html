@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Random Post</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<style>
+body {
+  background-color:white;
+  margin:0;
+  padding:0;
+  color:#212121;
+}
+
+.songLoiChua {
+  color: #212121;
+}
+</style>
+</head>
+<body>
+<div id="songLoiChua" class="songLoiChua"></div>
+<script>
+rdm = new Array()
+rdm[0] = "<img src='https://lh5.googleusercontent.com/-o8fPaKjc3gY/VGYZVa0he4I/AAAAAAAAEhA/8rfSNGAnd1g/s500/2Tm%25201%25207.jpg' /><br/><p>&quot;Thiên Chúa đã chẳng ban cho chúng ta một thần khí làm cho chúng ta trở nên nhút nhát, nhưng là một Thần Khí khiến chúng ta được đầy sức mạnh, tình thương, và biết tự chủ&quot; (2Tm 1,7).</p>"
+rdm[1] = "<img src='https://lh3.googleusercontent.com/-JQC3dDo-tXk/VGYZV1tJCuI/AAAAAAAAEhE/XEnZC0XqRfc/s500/2Tm%25202%252024.jpg' /><br/><p>&quot;Người tôi tớ Chúa thì không được cãi cọ, nhưng phải dịu dàng với mọi người, có khả năng giảng dạy, biết chịu đựng gian khổ&quot; (2Tm 2,24).</p>"
+rdm[2] = "<img src='https://lh4.googleusercontent.com/-KwFiPZMhLCI/VGYZXJCBRfI/AAAAAAAAEhM/ZCxu9IFmQh0/s500/Gl%25202%252020.jpg' /><br/><p>&quot;Tôi sống, nhưng không còn phải là tôi, mà là Ðức Ki-tô sống trong tôi&quot; (Gl 2,20).</p>"
+rdm[3] = "<img src='https://lh6.googleusercontent.com/-oVJf0gLKf6w/VGYZYVZeONI/AAAAAAAAEhU/3-oFbVgN1K8/s500/Gl%25205%252015.jpg' /><br/><p>&quot;Nếu anh em cắn xé nhau, anh em hãy coi chừng, anh em tiêu diệt lẫn nhau đấy!&quot; (Gl 5,15)</p>"
+rdm[4] = "<img src='https://lh6.googleusercontent.com/-Ppb17dEiqP8/VGYZVdniNXI/AAAAAAAAEg8/4pfcp5RNHoI/s500/2Pr%25203%25209b.jpg' /><br/><p>&quot;Chúa kiên nhẫn đối với anh em, vì Người không muốn cho ai phải diệt vong, nhưng muốn cho mọi người đi tới chỗ ăn năn hối cải&quot; (2Pr 3, 9b).</p>"
+rdm[5] = "<img src='https://lh4.googleusercontent.com/-QZqipplAP5w/VGjUODB_s6I/AAAAAAAAEj8/2094_98coTM/s500/Kh%252015%252011.jpg' /><br/><p>&quot;Muôn nước hỡi, nào hãy ca ngợi Chúa, ngàn dân ơi, hãy chúc tụng Người!&quot; (Kh 15,11)</p>"
+rdm[6] = "<img src='https://lh5.googleusercontent.com/-Xjh_CIcdPWc/VGjUPxadBvI/AAAAAAAAEkQ/Qhl2fJlgQ_o/s500/Mt%25203%25203%2529.jpg' /><br/><p>&quot;Hãy dọn sẵn con đường cho Ðức Chúa, sửa lối cho thẳng để Người đi&quot; (Mt 3,3).</p>"
+rdm[7] = "<img src='https://lh4.googleusercontent.com/-96YKlfMZGTA/VGjUOdR2YeI/AAAAAAAAEkE/Q7Gdq72gPNc/s500/2Cor%25208%25209.jpg' /><br/><p>&quot;Người vốn giàu sang phú quý, nhưng đã tự ý trở nên nghèo khó vì anh em, để lấy cái nghèo khó của mình mà làm cho anh em trở nên giàu có&quot; (2Cor 8,9)</p>"
+rdm[8] = "<img src='https://lh4.googleusercontent.com/-UT7eESppam8/VGjUO49QW8I/AAAAAAAAEkI/MsfCJ3c5iQM/s500/Mt%25203%25202.jpg' /><br/><p>&quot;Anh em hãy sám hối, vì Nước Trời đã gần đến&quot; (Mt 3,2).</p>"
+rdm[9] = "<img src='https://lh5.googleusercontent.com/-ToDxei0kBRA/VGjUQoj2iuI/AAAAAAAAEkY/4-LZL4XYbWU/s590/Mt%25204%25204.jpg' /><br/><p>&quot;Người ta sống không chỉ nhờ cơm bánh, nhưng còn nhờ mọi lời miệng Thiên Chúa phán ra&quot; (Mt 4,4).</p>"
+rdm[10] = "<img src='https://lh6.googleusercontent.com/-oThaSrXFtXE/VGaQKKlX_iI/AAAAAAAAEiE/MuJhaaJ562E/s518/Mt%25205%25203.jpg' /><br/><p>&quot;Phúc thay ai có tâm hồn nghèo khó, vì Nước Trời là của họ&quot; (Mt 5,3).</p>"
+rdm[11] = "<img src='https://lh3.googleusercontent.com/-zLb5Xy-xdhQ/VGaQKcpHhBI/AAAAAAAAEiI/1y5V-wtMYJE/s500/Mt%25205%25204.jpg' /><br/><p>&quot;Phúc thay ai hiền lành, vì họ sẽ được Đất Hứa làm gia nghiệp&quot; (Mt 5,4).</p>"
+rdm[12] = "<img src='https://lh5.googleusercontent.com/-Lc6TDVUEJXM/VGaQKvpYRKI/AAAAAAAAEiM/9JL2n4gAOuQ/s500/Mt%25205%25205.jpg' /><br/><p>&quot;Phúc thay ai sầu khổ, vì họ sẽ được Thiên Chúa ủi an&quot; (Mt 5,5).</p>"
+rdm[13] = "<img src='https://lh4.googleusercontent.com/-BV_tT1az09g/VGaQLixjEjI/AAAAAAAAEiY/Zka-wuF2pjc/s500/Mt%25205%25207.jpg' /><br/><p>&quot;Phúc thay ai xót thương người, vì họ sẽ được Thiên Chúa xót thương&quot; (Mt 5,7).</p>"
+rdm[14] = "<img src='https://lh3.googleusercontent.com/-988Or7HkYtI/VGaQMFqQ6AI/AAAAAAAAEic/_QP8bgRb2Z0/s500/Mt%25205%25209.jpg' /><br/><p>&quot;Phúc thay ai xây dựng hoà bình, vì họ sẽ được gọi là con Thiên Chúa&quot; (Mt 5,9). </p>"
+rdm[15] = "<img src='https://lh5.googleusercontent.com/-Rc6kI2qLT40/VGi1T8NhNmI/AAAAAAAAEi4/Fn4LHMYryqw/s640/Mt%25205%252010.JPG' /><br/><p>&quot;Phúc thay ai bị bách hại vì sống công chính, vì Nước Trời là của họ&quot; (Mt 5,10).</p>"
+rdm[16] = "<img src='https://lh3.googleusercontent.com/-KJ-BnNWFCuA/VGi1a8U7VII/AAAAAAAAEjA/cQ2B3Xn5pZM/s500/Mt%25205-11-500px.jpg' /><br/><p>&quot;Phúc thay anh em khi vì Thầy mà bị người ta sỉ vả, bách hại và vu khống đủ điều xấu xa&quot; (Mt 5,11).</p>"
+rdm[17] = "<img src='https://lh5.googleusercontent.com/-VBKlH_9dvXA/VGi1fx_NOdI/AAAAAAAAEjI/SOR9IJX34uI/s640/Mt%25205%252013.jpg' /><br/><p>&quot;Chính anh em là muối cho đời. Nhưng muối mà nhạt đi, thì lấy gì muối nó cho mặn lại? Nó đã thành vô dụng&quot; (Mt 5,13).</p>"
+rdm[18] = "<img src='https://lh6.googleusercontent.com/-to3Sys7zr3s/VGi1Nt6Hn2I/AAAAAAAAEiw/xUe8BXHurNA/s500/Mt%25205-6.jpg' /><br/><p>&quot;Phúc thay ai khát khao nên người công chính, vì họ sẽ được Thiên Chúa cho thoả lòng&quot; (Mt 5,6).</p>"
+rdm[19] = "<img src='https://lh4.googleusercontent.com/-ZotTyKUijzc/VGi1i0iIYVI/AAAAAAAAEjQ/_l--uw9u3GQ/s500/Pl%25204-4.jpg' /><br/><p>&quot;Anh em hãy vui luôn trong niềm vui của Chúa. Tôi nhắc lại: vui lên anh em!&quot; (Pl 4,4)</p>"
+rdm[20] = "<img src='https://lh4.googleusercontent.com/-VcVpfSB8xPc/VGX6f75bl2I/AAAAAAAAEeA/UToPjzYL908/s500/Ga%252014%25206.jpg' /><br/><p>&quot;Chính Thầy là con đường, là sự thật và là sự sống. Không ai đến với Chúa Cha mà không qua Thầy&quot; (Ga 14,6).</p>"
+rdm[21] = "<img src='https://lh5.googleusercontent.com/-zcWQJaO7V04/VGX6jjqxx1I/AAAAAAAAEeI/M_k08tRJ2-0/s500/Ga%25208%252012.jpg' /><br/><p>&quot;Tôi là ánh sáng thế gian. Ai theo tôi, sẽ không phải đi trong bóng tối, nhưng sẽ nhận được ánh sáng đem lại sự sống&quot; (Ga 8,12).</p>"
+rdm[22] = "<img src='https://lh6.googleusercontent.com/-DljOKZbWQlI/VGX6oLNEnUI/AAAAAAAAEeQ/Rwn9aOUkmmA/s500/Ga%25208%252034.jpg' /><br/><p>&quot;Hễ ai phạm tội thì làm nô lệ cho tội&quot; (Ga 8,34).</p>"
+rdm[23] = "<img src='https://lh3.googleusercontent.com/-JikgkPUVKhQ/VGX6rzKekmI/AAAAAAAAEeY/gv4VikJc8js/s500/Ga%252012%252046.jpg' /><br/><p>&quot;Tôi là ánh sáng đến thế gian, để bất cứ ai tin vào tôi, thì không ở lại trong bóng tối&quot; (Ga 12,46).</p>"
+rdm[24] = "<img src='https://lh5.googleusercontent.com/-EVR0-B2ZVJg/VGX6vcdmNjI/AAAAAAAAEeg/1t6L-PUvtR8/s500/Ga%252014%25201.jpg' /><br/><p>&quot;Anh em đừng xao xuyến! Hãy tin vào Thiên Chúa và tin vào Thầy&quot; (Ga 14,1).</p>"
+rdm[25] = "<img src='https://lh4.googleusercontent.com/-A0rtKDU9FvA/VGYFx4u-ReI/AAAAAAAAEe0/HscCC33v-4g/s500/1Cor%252010%252013.jpg' /><br/><p>&quot;Không một thử thách nào đã xảy ra cho anh em mà lại vượt quá sức loài người; nhưng khi để anh em bị thử thách, Người sẽ cho kết thúc tốt đẹp&quot; (1Cor 10,13).</p>"
+rdm[26] = "<img src='https://lh4.googleusercontent.com/-Uco0G9Ll5ks/VGYF3AHxrSI/AAAAAAAAEe8/Ac-sTP2QaPo/s500/Ga%252014%252015.jpg' /><br/><p>&quot;Nếu anh em yêu mến Thầy, anh em sẽ giữ các điều răn của Thầy&quot; (Ga 14,15).</p>"
+rdm[27] = "<img src='https://lh3.googleusercontent.com/-4yjVkr629c0/VGYF6eYfScI/AAAAAAAAEfE/P_TiObHRaeI/s500/Ga%252014%252023.jpg' /><br/><p>&quot;Ai yêu mến Thầy, thì sẽ giữ lời Thầy. Cha Thầy sẽ yêu mến người ấy. Cha Thầy và Thầy sẽ đến và ở lại với người ấy&quot; (Ga 14,23).</p>"
+rdm[28] = "<img src='https://lh6.googleusercontent.com/-6YuDBL7jjeo/VGYF99Q0wXI/AAAAAAAAEfM/rZT4NFO6R8s/s500/Ga%252014%252027.jpg' /><br/><p>&quot;Thầy ban cho anh em bình an của Thầy. Thầy ban cho anh em không như thế gian ban tặng. Lòng anh em đừng xao xuyến cũng đừng sợ hãi&quot; (Ga 14,27).</p>"
+rdm[29] = "<img src='https://lh3.googleusercontent.com/-PjnlQmbomwk/VGYGBdifpvI/AAAAAAAAEfU/xxl2g09aeeg/s500/Ga14%252014.jpg' /><br/><p>&quot;Nếu anh em nhân danh Thầy mà xin Thầy điều gì, thì chính Thầy sẽ làm điều đó&quot; (Ga 14,14).</p>"
+rdm[30] = "<img src='https://lh5.googleusercontent.com/-Upo6L0yrz2s/VGYPhKF2gvI/AAAAAAAAEfs/0QR44nzLr0E/s500/1Cor%25206%252020.jpg' /><br/><p>&quot;Thiên Chúa đã trả giá đắt mà chuộc lấy anh em. Vậy anh em hãy tôn vinh Thiên Chúa nơi thân xác anh em&quot; (1Cor 6,20).</p>"
+rdm[31] = "<img src='https://lh4.googleusercontent.com/-ULfzNChEwWA/VGYPopkfVqI/AAAAAAAAEf4/J5P2--J_2GY/s500/2Cor%252012%25209-85.jpg' /><br/><p>&quot;Ơn của Thầy đã đủ cho con, vì sức mạnh của Thầy được biểu lộ trọn vẹn trong sự yếu đuối của con&quot; (2Cor 12,9).</p>"
+rdm[32] = "<img src='https://lh6.googleusercontent.com/-3m8XcOEGoQs/VGYPtZK2YOI/AAAAAAAAEgI/j3hYvuvoem8/s550/Cv%252020%252035.jpg' /><br/><p>&quot;Cho thì có phúc hơn là nhận&quot; (Cv 20,35).</p>"
+rdm[33] = "<img src='https://lh5.googleusercontent.com/-y0aUMIZcbxQ/VGYPyVR1BZI/AAAAAAAAEgQ/GP38vsJIXgI/s640/Gl%25202%25206.jpg' /><br/><p>&quot;Thiên Chúa không thiên vị ai&quot; (Gl 2,6).</p>"
+rdm[34] = "<img src='https://lh6.googleusercontent.com/-QMWtO2wdhOA/VGYP2vwpaCI/AAAAAAAAEgc/Sz7bT6PYVtw/s500/Rm%25203%252028.jpg' /><br/><p>&quot;Người ta được nên công chính vì tin, chứ không phải vì làm những gì Luật dạy&quot; (Rm 3,28).</p>"
+rdm[35] = "<img src='https://lh5.googleusercontent.com/-XeSHUYXNWAs/VGtYUMYZU_I/AAAAAAAAGRo/ek2amR6wWBs/s500/Lc%2011%2028.jpg' /><br/><p>&quot;Phúc thay kẻ lắng nghe và tuân giữ lời Thiên Chúa&quot; (Lc 11,28).</p>"
+rdm[36] = "<img src='https://lh3.googleusercontent.com/-uXr-GLbycMw/VGtYXohh4GI/AAAAAAAAGRw/MOe3asl0KNc/s500/Mt%2021%2022.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được&quot; (Mt 21,22).</p>"
+rdm[37] = "<img src='https://lh5.googleusercontent.com/-qGyJzQmaMow/VGtYk50O5cI/AAAAAAAAGR4/EU6XdaL0Rco/s500/1Cor%252013%25207.jpg' /><br/><p>&quot;Đức mến tha thứ tất cả, tin tưởng tất cả, hi vọng tất cả, chịu đựng tất cả&quot; (1Cor 13,7).</p>"
+rdm[38] = "<img src='https://lh5.googleusercontent.com/-DGoS7NRfBtk/VGtYoxomr9I/AAAAAAAAGSI/tFfzU_CJbeg/s500/1Cor%25206-20.jpg' /><br/><p>&quot;Thiên Chúa đã trả giá đắt mà chuộc lấy anh em. Vậy anh em hãy tôn vinh Thiên Chúa nơi thân xác anh em.&quot; (1Cor 6,20).</p>"
+rdm[39] = "<img src='https://lh3.googleusercontent.com/-WWXTE5rDBB0/VGtYnku5ctI/AAAAAAAAGSA/x1cDbuB40Pk/s500/1Ga%25201%25209.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Ðấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính.&quot; (1Ga 1,9).</p>"
+rdm[40] = "<img src='https://lh6.googleusercontent.com/-ekqAjERhm3U/VGtYrdTdLEI/AAAAAAAAGSY/phnBgV1k3ek/s500/1Tx%25205%252021-22.jpg' /><br/><p>&quot;Hãy cân nhắc mọi sự: điều gì tốt thì giữ; còn điều gì xấu dưới bất cứ hình thức nào thì lánh cho xa&quot; (1Tx 5,21-22).</p>"
+rdm[41] = "<img src='https://lh6.googleusercontent.com/-hMKMsVQ7ZGc/VGtYqRBBqRI/AAAAAAAAGSQ/TN5IOZv-bpk/s500/2Cor%252012%25209.jpg' /><br/><p>&quot;Ơn của Thầy đã đủ cho con, vì sức mạnh của Thầy được biểu lộ trọn vẹn trong sự yếu đuối của con&quot; (2Cor 12,9).</p>"
+rdm[42] = "<img src='https://lh6.googleusercontent.com/-AcgRaPbo6kI/VGtYsFwOAKI/AAAAAAAAGSg/k3pvoFLAvdU/s500/2Pr%25203%25209b.jpg' /><br/><p>&quot;Chúa kiên nhẫn đối với anh em, vì Người không muốn cho ai phải diệt vong, nhưng muốn cho mọi người đi tới chỗ ăn năn hối cải&quot; (2Pr 3,9b).</p>"
+rdm[43] = "<img src='https://lh6.googleusercontent.com/-9iwdFO3lU9I/VGtYtEuCMUI/AAAAAAAAGSs/RqbnHpsMA4M/s500/2Pr%25203-9b.jpg' /><br/><p>&quot;Chúa kiên nhẫn đối với anh em, vì Người không muốn cho ai phải diệt vong, nhưng muốn cho mọi người đi tới chỗ ăn năn hối cải&quot; (2Pr 3,9b).</p>"
+rdm[44] = "<img src='https://lh3.googleusercontent.com/-a4FNKNzXW3M/VGtYtx9Ut_I/AAAAAAAAGSw/VGI26FN_w7I/s500/2Tx%25203%252016.jpg' /><br/><p>&quot;Chúa là nguồn mạch bình  an, xin Người ban cho anh em  được  bình an mọi lúc và về  mọi phương  diện. Xin Chúa ở cùng tất cả anh em&quot; (2Tx 3,16).</p>"
+rdm[45] = "<img src='https://lh5.googleusercontent.com/-ATzuorbB2rU/VGtYup37h3I/AAAAAAAAGS8/YpN5rfXVP6s/s601/Dt%252011-1-logo%2520Thien-Chua-La-tinh-yeu.JPG' /><br/><p>&quot;Đức tin là bảo đảm cho những điều ta hi vọng, là bằng chứng cho những điều ta không thấy&quot; (Dt 11,1).</p>"
+rdm[46] = "<img src='https://lh4.googleusercontent.com/-YyhhKtKJBtA/VGtYvvUK4_I/AAAAAAAAGTI/beS3p3fd-8E/s500/Ep%25202-16.jpg' /><br/><p>&quot;Trên thập giá, Người đã tiêu diệt sự thù ghét&quot; (Ep 2,16).</p>"
+rdm[47] = "<img src='https://lh6.googleusercontent.com/-ubID67Ef1rA/VGtYwhOUKXI/AAAAAAAAGTY/TbA4V8y6iLQ/s500/Ga%252016-33.jpg' /><br/><p>&quot;Trong thế gian, anh em sẽ phải gian nan khốn khó. Nhưng can đảm lên! Thầy đã thắng thế gian&quot; (Ga16,33).</p>"
+rdm[48] = "<img src='https://lh3.googleusercontent.com/-8mICVsHLEXA/VGtYxF8fpYI/AAAAAAAAGTc/kTL6CMpE3io/s500/Ga%25205%252056.jpg' /><br/><p>&quot;Ai ăn thịt và uống máu tôi, thì ở lại trong tôi, và tôi ở lại trong người ấy&quot; (Ga 6,56).</p>"
+rdm[49] = "<img src='https://lh6.googleusercontent.com/-BcNw48D8quk/VGtYx0L_NeI/AAAAAAAAGTg/OXh6wzTeMr0/s500/Gc%25205%252015.jpg' /><br/><p>&quot;Lời cầu nguyện do lòng tin sẽ cứu người bệnh; người ấy được Chúa nâng dậy, và nếu người ấy đã phạm tội, thì sẽ được Chúa thứ tha&quot; (Gc 5,15).</p>"
+rdm[50] = "<img src='https://lh4.googleusercontent.com/-RtkY2oBD2sY/VGtYywt9h8I/AAAAAAAAGT0/twhrsxtndAY/s500/HAY%2520NUONG%2520TUA%2520VAO%2520CHUA.jpg' /><br/><p>Bất cứ khi nào Bạn cảm thấy yếu đuối, ấy là lúc THiên Chúa đang nhắc nhở Bạn: HÃY NƯƠNG TỰA VÀO NGÀI</p>"
+rdm[51] = "<img src='https://lh3.googleusercontent.com/-yWhCJtTqK9s/VGtYzWeu8PI/AAAAAAAAGTw/nwQ-Jiy2zdw/s500/IMG_5988%2520TARP.jpg' /><br/><p>&quot;Ai ăn thịt và uống máu tôi, thì ở lại trong tôi, và tôi ở lại trong người ấy&quot; (Ga 6,56).</p>"
+rdm[52] = "<img src='https://lh5.googleusercontent.com/-KWVBiZEMjRM/VGtYz1B6geI/AAAAAAAAGT4/pBfAg7ec834/s500/Lc%252011%252028.jpg' /><br/><p>&quot;Phúc thay kẻ lắng nghe và tuân giữ lời Thiên Chúa&quot; (Lc 11,28).</p>"
+rdm[53] = "<img src='https://lh3.googleusercontent.com/-Mxit03TlxpE/VGtY1NRvs1I/AAAAAAAAGUE/I0TSxVdsd04/s500/Lc%252015%2520%252010.jpg' /><br/><p>&quot;Giữa triều thần Thiên Chúa, ai nấy sẽ vui mừng vì một người tội lỗi sám hối ăn năn&quot; (Lc 15,10).</p>"
+rdm[54] = "<img src='https://lh3.googleusercontent.com/-tGyl_rGVqJo/VGtY1_74ntI/AAAAAAAAGUM/nNm4oo8ZgrY/s500/Lc%252022%252040.jpg' /><br/><p>&quot;Anh em hãy cầu nguyện kẻo sa chước cám dỗ&quot; (Lc 22,40).</p>"
+rdm[55] = "<img src='https://lh6.googleusercontent.com/-abKP2K9j8v8/VGtY2eUxRcI/AAAAAAAAGUU/w8HUKt3RrV0/s500/Lc%25205%252032.jpg' /><br/><p>&quot;Ta không đến để kêu gọi người công chính, mà để kêu gọi người tội lỗi sám hối ăn năn&quot; (Lc 5:32).</p>"
+rdm[56] = "<img src='https://lh5.googleusercontent.com/-Kkt1HFbkprc/VGtY3YSk2FI/AAAAAAAAGUc/eXhGgjX7Ulg/s500/Mc%252011-25.jpg' /><br/><p>&quot;Khi anh em đứng cầu nguyện, nếu anh em có chuyện bất bình với ai, thì hãy tha thứ cho họ, để Cha của anh em là Đấng ngự trên trời, cũng tha lỗi cho anh em&quot; (Mc 11,25).</p>"
+rdm[57] = "<img src='https://lh4.googleusercontent.com/-8cvy0r8sYd4/VGtY4vSqR7I/AAAAAAAAGUs/OBzp3XaDlAU/s500/Mc%25206%252050.jpg' /><br/><p>&quot;Cứ yên tâm, chính Thầy đây, đừng sợ!&quot; (Mc 6,50).</p>"
+rdm[58] = "<img src='https://lh4.googleusercontent.com/-CILLkI6LXeY/VGtY39a1_7I/AAAAAAAAGUo/abw0y41beCA/s470/Mt%252014-16.jpg' /><br/><p>&quot;Họ không cần phải đi đâu cả, chính anh em hãy cho họ ăn&quot; (Mt 14,16).</p>"
+rdm[59] = "<img src='https://lh3.googleusercontent.com/-e3MNZWNh7EM/VGtY5TMexUI/AAAAAAAAGUw/c8TtXI0APeo/s500/Mt%252021%252022.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được&quot; (Mt 21,22).</p>"
+rdm[60] = "<img src='https://lh3.googleusercontent.com/-e3MNZWNh7EM/VGtY5TMexUI/AAAAAAAAGUw/c8TtXI0APeo/s500/Mt%252021%252022.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được; (Mt 21,22).</p>"
+rdm[61] = "<img src='https://lh3.googleusercontent.com/-x5jiJ9Jo_HY/VGtY6eZe8QI/AAAAAAAAGU8/WQssZuYEMUc/s500/Mt%252021-22.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được&quot; (Mt 21,22).</p>"
+rdm[62] = "<img src='https://lh4.googleusercontent.com/-xFES9Z5at5M/VGtY6xPBjlI/AAAAAAAAGVA/PqxLCO77WIY/s500/Mt%25205-5.jpg' /><br/><p>&quot;Phúc thay ai sầu khổ, vì họ sẽ được Thiên Chúa ủi an&quot; (Mt 5,5).</p>"
+rdm[63] = "<img src='https://lh6.googleusercontent.com/-Wlan0Kx5YyU/VGtY70sz_JI/AAAAAAAAGVI/8aYx5BFZNWk/s500/Mt%25206%252014%252015.jpg' /><br/><<p>&quot;Nếu anh em tha lỗi cho người ta, thì Cha anh em trên trời cũng sẽ tha thứ cho anh em. Nhưng nếu anh em không tha thứ cho người ta, thì Cha anh em cũng sẽ không tha lỗi cho anh em&quot; (Mt 6,14-15).</p>"
+rdm[64] = "<img src='https://lh6.googleusercontent.com/-_tDCPRNrKrA/VGtY8igUt_I/AAAAAAAAGVU/o35bCAtr6Ro/s500/Mt%25207%252012%2520100kb.jpg' /><br/><p>&quot;Tất cả những gì anh em muốn người ta làm cho mình, thì chính anh em cũng hãy làm cho người ta&quot; (Mt 7,12).</p>"
+rdm[65] = "<img src='https://lh6.googleusercontent.com/-aYGJtpZjC7I/VGtY9ZGBmiI/AAAAAAAAGVY/AKbPe3uPmdA/s500/Mt%25209%252022.jpg' /><br/><p>&quot;Này con, cứ yên tâm, lòng tin của con đã cứu chữa con&quot; (Mt 9,22).</p>"
+rdm[66] = "<img src='https://lh3.googleusercontent.com/-Ia_zUhaWKdo/VGtY-XSeRAI/AAAAAAAAGVk/FynFu-YQktM/s500/Rm%252010%252013.jpg' /><br/><<p>&quot;TẤT CẢ NHỮNG AI KÊU CẦU DANH ĐỨC CHÚA SẼ ĐƯỢC CỨU THOÁT&quot; (Rm 10,13).</p>"
+rdm[67] = "<img src='https://lh3.googleusercontent.com/-j6FqSBda4O8/VGtY-0QoViI/AAAAAAAAGVo/po44N4sGvC8/s500/Rm%252012%252021.jpg' /><br/><p>&quot;Ðừng để cho sự ác thắng được mình, nhưng hãy lấy thiện mà thắng ác&quot; (Rm 12,21).</p>"
+rdm[68] = "<img src='https://lh3.googleusercontent.com/-e3MNZWNh7EM/VGtY5TMexUI/AAAAAAAAGUw/c8TtXI0APeo/s500/Mt%252021%252022.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được&quot; (Mt 21,22).</p>"
+rdm[69] = "<img src='https://lh3.googleusercontent.com/-e3MNZWNh7EM/VGtY5TMexUI/AAAAAAAAGUw/c8TtXI0APeo/s500/Mt%252021%252022.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được&quot; (Mt 21,22).</p>"
+rdm[70] = "<img src='https://lh6.googleusercontent.com/-hBRX8LvM1Cg/VG0qcbbfJRI/AAAAAAAAGXk/RJNpiZ_CCoc/s500/Duc-Tin-co-vuot-qua-thu-thach-500px.jpg' /><br/><p>&quot;Ðức tin có vượt qua thử thách mới sinh ra lòng kiên nhẫn&quot; (Gc 1,3).</p>"
+rdm[71] = "<img src='https://lh5.googleusercontent.com/-CBcOkkyJvyw/VG0qcZK6TZI/AAAAAAAAGXo/xds3S32p_3U/s500/Gc%25201%25203-500px.jpg' /><br/><p>&quot;Ðức tin có vượt qua thử thách mới sinh ra lòng kiên nhẫn&quot; (Gc 1,3).</p>"
+rdm[72] = "<img src='https://lh3.googleusercontent.com/-ydLRytzMnrM/VG0qnHCNjwI/AAAAAAAAGXw/ophqpCM7nlE/s500/Dt%252013%25208-500px.jpg' /><br/><p>&quot;Ðức Giê-su Ki-tô vẫn là một, hôm qua cũng như hôm nay, và như vậy mãi đến muôn đời&quot; (Dt 13,8).</p>"
+rdm[73] = "<img src='https://lh5.googleusercontent.com/-x7jBXPqRg8I/VHNBcSGIDKI/AAAAAAAAGYY/pOPpLJPyjcA/s1600/1%20Pr%205%207.jpg' /><br/><p>&quot;Mọi âu lo, hãy trút cả cho Người, vì Người chăm sóc anh em&quot; (1Pr 5,7).</p>"
+rdm[74] = "<img src='https://lh4.googleusercontent.com/-huSnktH8jEg/VHNBcSizAeI/AAAAAAAAGYc/U0hikU_z8K8/s500/1%2520Pr%25205%25207-CHU-MAU-VANG.jpg' /><br/><p>&quot;Mọi âu lo, hãy trút cả cho Người, vì Người chăm sóc anh em&quot; (1Pr 5,7).</p>"
+rdm[75] = "<img src='https://lh4.googleusercontent.com/-1nk0xnBJFCA/VHNBveVTo8I/AAAAAAAAGYw/0f_1QCP9nlA/s1600/1Ga%201%209-v2.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Ðấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính&quot; (1Ga 1,9).</p>"
+rdm[76] = "<img src='https://lh4.googleusercontent.com/-EoPU3vXW0jE/VHNBvUubbSI/AAAAAAAAGYs/AsmaymwVt98/s470/1Ga%25201%25209.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Ðấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính&quot; (1Ga 1,9).</p>"
+rdm[77] = "<img src='https://lh3.googleusercontent.com/-O03jWA7Hz9s/VHNBypm9szI/AAAAAAAAGY4/TWYpwps59Yk/s500/2Cor%252012%25209.jpg' /><br/><p>&quot;Ơn của Thầy đã đủ cho con, vì sức mạnh của Thầy được biểu lộ trọn vẹn trong sự yếu đuối của con&quot; (2Cor 12,9).</p>"
+rdm[78] = "<img src='https://lh4.googleusercontent.com/-1gxmNcuuSdY/VHNDBrCuy0I/AAAAAAAAGZI/denJQVk0ayk/s470/2Pr%25203%25209.jpg' /><br/><p>&quot;Thiên Chúa  kiên nhẫn đối với anh em, vì Người không muốn cho ai phải diệt vong, nhưng muốn cho mọi người đi tới chỗ ăn năn hối cải&quot; (2Pr 3,9).</p>"
+rdm[79] = "<img src='https://lh4.googleusercontent.com/-XuLvl7M6n_E/VHNDCxQdmFI/AAAAAAAAGZU/9cbJFAvw3Q0/s500/2Tx%25203-16.jpg' /><br/><p>&quot;Chúa là nguồn mạch bình an, xin Người ban cho anh em  được bình an mọi lúc và về  mọi phương diện. Xin Chúa ở cùng tất cả anh em&quot; (2Tx 3,16).</p>"
+rdm[80] = "<img src='https://lh6.googleusercontent.com/-rBjRPaXWiOA/VHNDCHhe4dI/AAAAAAAAGZM/RlqteytiUQI/s542/Ep%25205%252011.jpg' /><br/><p>&quot;Ðừng cộng tác vào những việc vô ích của con cái bóng tối, phải vạch trần những việc ấy ra mới đúng&quot; (Ep 5,11).</p>"
+rdm[81] = "<img src='https://lh3.googleusercontent.com/-tVHeNk-71Mo/VHNDEBen-cI/AAAAAAAAGZg/9keI-iGtPyI/s470/Ga%25206%252068.jpg' /><br/><p>&quot;Thưa Thầy, bỏ Thầy thì chúng con biết đến với ai? Thầy mới có những lời đem lại sự sống đời đời&quot; (Ga 6,68).</p>"
+rdm[82] = "<img src='https://lh5.googleusercontent.com/-0lqan6Byh48/VHNDFNyhTGI/AAAAAAAAGZo/eBSpPOJXWlw/s640/Gl%25202%252020.jpg' /><br/><p>&quot;Con Thiên Chúa, Ðấng đã yêu mến tôi và hiến mạng vì tôi&quot; (Gl 2,20).</p>"
+rdm[83] = "<img src='https://lh4.googleusercontent.com/-9WcfmM6laqY/VHNDF_cZlVI/AAAAAAAAGZw/rjYc27GIfWM/s470/Gl%25202%252020.jpg' /><br/><p>&quot;Con Thiên Chúa, Ðấng đã yêu mến tôi và hiến mạng vì tôi&quot; (Gl 2,20).</p>"
+rdm[84] = "<img src='https://lh5.googleusercontent.com/-4z7UjlJmMxY/VHNDGgtbJoI/AAAAAAAAGZ0/B08VhygoV70/s470/Gl%25202%252020B.jpg' /><br/><p>&quot;Con Thiên Chúa, Ðấng đã yêu mến tôi và hiến mạng vì tôi&quot; (Gl 2,20).</p>"
+rdm[85] = "<img src='https://lh4.googleusercontent.com/-nUt2vUpBbtI/VHNEOaPnkVI/AAAAAAAAGZ8/vZx0MBtjLbM/s500/Lc%25209%252025-v2.jpg' /><br/><p>&quot;Được cả thế giới mà phải đánh mất chính mình hay là thiệt thân, thì nào có lợi gì?&quot; (Lc 9, 25)</p>"
+rdm[86] = "<img src='https://lh6.googleusercontent.com/-hG0C2TrXEdo/VHNEPuvIJCI/AAAAAAAAGaE/9w7xPTSxVIc/s640/Lc%25209%252025.jpg' /><br/><p>&quot;Được cả thế giới mà phải đánh mất chính mình hay là thiệt thân, thì nào có lợi gì?&quot; (Lc 9, 25)</p>"
+rdm[87] = "<img src='https://lh6.googleusercontent.com/-5kXESy0j8-c/VHNERKaufQI/AAAAAAAAGaM/qQhOnhPSU70/s470/Lc%252015%25207.jpg' /><br/><p>&quot;Trên trời cũng thế, ai nấy sẽ vui mừng vì một người tội lỗi ăn năn sám hối, hơn là vì chín mươi chín người công chính không cần phải sám hối ăn năn&quot; (Lc 15,7).</p>"
+rdm[88] = "<img src='https://lh3.googleusercontent.com/-DqbjtmaJRn0/VHNESb7StgI/AAAAAAAAGaU/jRuAXtNrx8k/s500/Mt%25206%252024.jpg' /><br/><p>&quot;Không ai có thể làm tôi hai chủ, vì hoặc sẽ ghét chủ này mà yêu chủ kia. Anh em không thể vừa làm tôi Thiên Chúa vừa làm tôi Tiền Của được&quot; (Mt 6,24).</p>"
+rdm[89] = "<img src='https://lh5.googleusercontent.com/-ZPu_LkYmp-A/VHNE-Tr4y_I/AAAAAAAAGag/zQqX3M4EnLI/s500/Mt%25206%252033.jpg' /><br/><p>&quot;Trước hết hãy tìm kiếm Nước Thiên Chúa và đức công chính của Người, còn tất cả những thứ kia, Người sẽ thêm cho&quot; (Mt 6,33).</p>"
+rdm[90] = "<img src='https://lh6.googleusercontent.com/-s8-qnd0eYr8/VHNE_xRTQDI/AAAAAAAAGao/WKxQq9d7yco/s500/Mt%25207%25207.jpg' /><br/><p>&quot;Anh em cứ xin thì sẽ được, cứ tìm thì sẽ thấy, cứ gõ cửa thì sẽ được mở cho&quot; (Mt 7,7).</p>"
+rdm[91] = "<img src='https://lh4.googleusercontent.com/-mNtsAnzg0co/VHNFBRGbHUI/AAAAAAAAGaw/ZFjzKfAB3KQ/s470/Mt%25209%252013.jpg' /><br/><p>&quot;Ta không đến để kêu gọi người công chính, nhưng kêu gọi người tội lỗi&quot; (Mt 9,13).</p>"
+rdm[92] = "<img src='https://lh4.googleusercontent.com/-eECiHBb-Pes/VHNFCihaAqI/AAAAAAAAGa4/RWVmdPsDciI/s500/Tv%252032%25201.jpg' /><br/><p>&quot;Hạnh phúc thay, kẻ lỗi lầm mà được tha thứ,<br/>người có tội mà được khoan dung&quot; (Tv 32,1).</p>"
+rdm[93] = "<img src='https://lh4.googleusercontent.com/-z5Dm3Sbsgs8/VHNFD_LtcCI/AAAAAAAAGbA/kP6nFNDR2Kc/s605/Tv%252032%252010b.jpg' /><br/><p>&quot;Ai tin cậy CHÚA, luôn được Người ấp ủ thương yêu&quot; (Tv 32,10b).</p>"
+rdm[94] = "<img src='https://lh6.googleusercontent.com/-Imgs0c36sG0/VHNFHMHiTPI/AAAAAAAAGbI/hv7iudykWQs/s500/Tv%252038%252022.jpg' /><br/><p>&quot;Muôn lạy CHÚA, xin đừng bỏ mặc,<br/>đừng nỡ xa con, lạy Thiên Chúa con thờ&quot; (Tv 38,22).</p>"
+rdm[95] = "<img src='https://lh5.googleusercontent.com/-2ynhX2FuhnM/VHNFNXo4zJI/AAAAAAAAGbQ/tRAboHij0fk/s500/1Ga%25201%25209.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Ðấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính&quot; (1Ga 1,9).</p>"
+rdm[96] = "<img src='https://lh6.googleusercontent.com/-HC1bRYv9DFE/VHNGvUD5VPI/AAAAAAAAGbk/XdYRuuB7dH8/s500/2Cor%25208%25209.jpg' /><br/><p>&quot;Người vốn giàu sang phú quý, nhưng đã tự ý trở nên nghèo khó vì anh em, để lấy cái nghèo của mình mà làm cho anh em trở nên giàu có&quot; (2Cor 8,9).</p>"
+rdm[97] = "<img src='https://lh5.googleusercontent.com/-0FVJWNs6yQ4/VHNGuFuRQDI/AAAAAAAAGbc/kpArNB5LtaA/s500/Ga%2520%252016-33%2520jpg.jpg' /><br/><p>&quot;Trong thế gian anh em sẽ phải gian nan khốn khó. Nhưng can đảm lên! Thầy đã thắng thế gian&quot; (Ga 16,33).</p>"
+rdm[98] = "<img src='https://lh4.googleusercontent.com/-an1LamdCuuM/VHNGxB2o1SI/AAAAAAAAGbw/Wu9wUJIk0CY/s470/Ga%25203%252027.jpg' /><br/><p>&quot;Chẳng ai có thể nhận được gì mà không do Trời ban&quot; (Ga 3,27).</p>"
+rdm[99] = "<img src='https://lh3.googleusercontent.com/-7dd2_tNpOoE/VHNGxigtuXI/AAAAAAAAGb4/8x2ZzAEqjdg/s500/Ga%25203%252017.jpg' /><br/><p>&quot;Người đến thế gian, không phải để lên án thế gian, nhưng là để thế gian, nhờ Người, mà được cứu độ&quot; (Ga 3,17).</p>"
+rdm[100] = "<img src='https://lh5.googleusercontent.com/-sorrcn0vc1U/VHNGxyGGGvI/AAAAAAAAGb8/cTE_0FyBuvk/s500/Gc%25204%25206.jpg' /><br/><p>&quot;Thiên Chúa chống lại kẻ kiêu ngạo, nhưng ban ơn cho kẻ khiêm nhường&quot; (Gc 4,6).</p>"
+rdm[101] = "<img src='https://lh5.googleusercontent.com/-xeZQsvebpIw/VHNGyzJi7dI/AAAAAAAAGcE/1WTDIh9w4iI/s500/Gc%25205%252015.jpg' /><br/><p>&quot;Lời cầu nguyện do lòng tin sẽ cứu người bệnh; người ấy được Chúa nâng dậy, và nếu người ấy đã phạm tội, thì sẽ được Chúa thứ tha&quot; (Gc 5,15).</p>"
+rdm[102] = "<img src='https://lh6.googleusercontent.com/-x4jI_OMbqWc/VHNGz4STMVI/AAAAAAAAGcQ/AmifO-IcJzY/s470/Gl%25202%252020.jpg' /><br/><p>&quot;Tôi sống, nhưng không còn phải là tôi, mà là Ðức Ki-tô sống trong tôi&quot; (Gl 2,20).</p>"
+rdm[103] = "<img src='https://lh4.googleusercontent.com/-muL4JxAuPnU/VHNG0iGGV4I/AAAAAAAAGcU/cVuSanL8MqY/s500/Gl%25202%252020.jpg' /><br/><p>&quot;Tôi sống, nhưng không còn phải là tôi, mà là Ðức Ki-tô sống trong tôi&quot; (Gl 2,20).</p>"
+rdm[104] = "<img src='https://lh5.googleusercontent.com/-xhBZpDtXllc/VHNG1ihD-ZI/AAAAAAAAGck/nK3IHiEMTro/s500/Lc%25205%252032%2520chu-mau-trang.jpg' /><br/><p>&quot;Tôi không đến để kêu gọi người công chính, mà để kêu gọi người tội lỗi sám hối ăn năn&quot; (Lc 5,32).</p>"
+rdm[105] = "<img src='https://lh3.googleusercontent.com/-NF_JCQelXyE/VHNG1XHu3qI/AAAAAAAAGcg/H0mtJ7GoPq8/s500/Lc%25205%252032-CHU-MAU-VANG.jpg' /><br/><p>&quot;Tôi không đến để kêu gọi người công chính, mà để kêu gọi người tội lỗi sám hối ăn năn&quot; (Lc 5,32).</p>"
+rdm[106] = "<img src='https://lh5.googleusercontent.com/-Jx6NJUDEt8Q/VHNG2LWhzuI/AAAAAAAAGcw/s3S22gXuGm8/s470/Lc%252011%25209.jpg' /><br/><p>&quot;Anh em cứ xin thì sẽ được, cứ tìm thì sẽ thấy, cứ gõ cửa thì sẽ mở cho&quot; (Lc 11,9).</p>"
+rdm[107] = "<img src='https://lh5.googleusercontent.com/-5vruDsT4CQo/VHNG2sDLNZI/AAAAAAAAGc0/RcWrw8I9XaQ/s500/Mt%25205-10.jpg' /><br/><p>&quot;Phúc thay ai bị bách hại vì sống công chính, vì Nước Trời là của họ&quot; (Mt 5,10).</p>"
+rdm[108] = "<img src='https://lh6.googleusercontent.com/-YMQQoquFzd8/VHNG3cSd-1I/AAAAAAAAGdA/mdtKIKfvgRo/s470/Mt%25206%252033.jpg' /><br/><p>&quot;Trước hết hãy tìm kiếm Nước Thiên Chúa và đức công chính của Người, còn tất cả những thứ kia, Người sẽ thêm cho&quot; (Mt 6,33).</p>"
+rdm[109] = "<img src='https://lh4.googleusercontent.com/-KGqIL4cY9PA/VHNG4MKwxrI/AAAAAAAAGdI/V05h8jPFkLk/s470/Mt%25206-33-CHU-HOA.jpg' /><br/><p>&quot;Trước hết hãy tìm kiếm Nước Thiên Chúa và đức công chính của Người, còn tất cả những thứ kia, Người sẽ thêm cho&quot; (Mt 6,33).</p>"
+rdm[110] = "<img src='https://lh6.googleusercontent.com/-DyIA_-zDXw0/VHNG4lAcAWI/AAAAAAAAGdM/SyIYvnAZ3rc/s500/Mt%25209%252013.jpg' /><br/><p>&quot;Ta muốn lòng nhân chứ đâu cần lễ tế&quot;(Mt 9,13).</p>"
+rdm[111] = "<img src='https://lh4.googleusercontent.com/-rlcMSKqTPYQ/VHNHsPyE-aI/AAAAAAAAGdU/8I3DaZgGg40/s500/Mt%252011%252028-.jpg' /><br/><p>&quot;Những ai đang vất vả mang gánh nặng nề, hãy đến cùng tôi, tôi sẽ cho nghỉ ngơi bồi dưỡng&quot; (Mt 11,28).</p>"
+rdm[112] = "<img src='https://lh3.googleusercontent.com/-eWGVGWxnChg/VHNHuG0_MtI/AAAAAAAAGdc/uj10dVxmuRs/s500/Mt%252021-22-MAU-VANG.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được&quot; (Mt 21,22).</p>"
+rdm[113] = "<img src='https://lh3.googleusercontent.com/-726FW708qTw/VHNHxUNOKVI/AAAAAAAAGdk/Ijh7wPAqrQc/s720/Mt%252021-22-vien%2520mau%2520den.jpg' /><br/><p>&quot;Tất cả những gì anh em lấy lòng tin mà xin khi cầu nguyện, thì anh em sẽ được&quot; (Mt 21,22).</p>"
+rdm[114] = "<img src='https://lh5.googleusercontent.com/-yJZZG3OWlwc/VHNHy0nmZBI/AAAAAAAAGds/4GAjVZYQRbI/s470/Rm%252012%252021.jpg' /><br/><p>&quot;Ðừng để cho sự ác thắng được mình, nhưng hãy lấy thiện mà thắng ác&quot; (Rm 12,21).</p>"
+rdm[115] = "<img src='https://lh6.googleusercontent.com/-v6_uxwZ1NpQ/VHNH1ToBSAI/AAAAAAAAGd0/zx7cah3O6Cc/s500/Rm%252012%252021.jpg' /><br/><p>&quot;Ðừng để cho sự ác thắng được mình, nhưng hãy lấy thiện mà thắng ác&quot; (Rm 12,21).</p>"
+rdm[116] = "<img src='https://lh5.googleusercontent.com/-gJZGJf32FyQ/VHNKCzCWDxI/AAAAAAAAGeA/YfhiHGlTTYE/s500/Rm%252012-21-.jpg' /><br/><p>&quot;Ðừng để cho sự ác thắng được mình, nhưng hãy lấy thiện mà thắng ác&quot; (Rm 12,21).</p>"
+rdm[117] = "<img src='https://lh5.googleusercontent.com/-wjGgOXX3SNU/VHNKHQrAXYI/AAAAAAAAGeU/PZkVyUyKE00/s720/1Ga%25201-9.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Ðấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính&quot; (1Ga 1,9).</p>"
+rdm[118] = "<img src='https://lh3.googleusercontent.com/-zg94xc0mLs0/VHNKE1JECII/AAAAAAAAGeI/fCsn3LW1IoI/s500/Tv%252018%25202.jpg' /><br/><p>&quot;Con yêu mến Ngài, LẠY CHÚA là sức mạnh của con&quot; (Tv 18-2).</p>"
+rdm[119] = "<img src='https://lh5.googleusercontent.com/-SdkJKDQymwY/VHNKHyiii6I/AAAAAAAAGec/GTnwisNXzFc/s470/Tv%252062%25202.jpg' /><br/><p>&quot;Chỉ trong Thiên Chúa mà thôi,<br/>hồn tôi mới được nghỉ ngơi yên hàn.<br/>Ơn cứu độ tôi bởi Người mà đến&quot;<br/>(Tv 62-2).</p>"
+rdm[120] = "<img src='https://lh5.googleusercontent.com/-Jsa1IOMliZA/VHu5KzsmAiI/AAAAAAAAGfM/KWrtXcaEkiw/s500/1Pr%25205%25205-500Px.jpg' /><br/><p>&quot;Anh em hãy lấy đức khiêm nhường mà đối xử với nhau, vì Thiên Chúa chống lại kẻ kiêu ngạo, nhưng ban ơn cho kẻ khiêm nhường&quot; (1Pr 5,5).</p>"
+rdm[121] = "<img src='https://lh5.googleusercontent.com/-26iIc4D2K8Y/VHu5HywK01I/AAAAAAAAGfE/t5_VT2TBHxM/s500/1Ga%25203%252018-500px.jpg' /><br/><p>&quot;Hỡi anh em là những người con bé nhỏ, chúng ta đừng yêu thương nơi đầu môi chót lưỡi, nhưng phải yêu thương cách chân thật và bằng việc làm&quot; (1Ga 3,18).</p>"
+rdm[122] = "<img src='https://lh4.googleusercontent.com/-7UMy3_lohEw/VHvAnnpS5TI/AAAAAAAAGfc/0TSAEie9QV8/s550/Ga-6-56.jpg' /><br/><p>&quot;Ai ăn thịt và uống máu tôi, thì ở lại trong tôi, và tôi ở lại trong người ấy&quot; (Ga 6,56).</p>"
+rdm[123] = "<img src='https://lh5.googleusercontent.com/-RBePc5hmeLw/VHvAr9_CSsI/AAAAAAAAGfk/foqmy7swM5A/s450/Ga-14-1.jpg' /><br/><p>&quot;Anh em đừng xao xuyến! Hãy tin vào Thiên Chúa và tin vào Thầy&quot; (Ga 14,1).</p>"
+rdm[124] = "<img src='https://lh3.googleusercontent.com/-m7weE48AcXM/VHvAukQlPYI/AAAAAAAAGfs/ZmbxNm2kBzk/s500/Ga-14-1.jpg' /><br/><p>&quot;Anh em đừng xao xuyến! Hãy tin vào Thiên Chúa và tin vào Thầy&quot; (Ga 14,1).</p>"
+rdm[125] = "<img src='https://lh4.googleusercontent.com/-iWOYdxyKEhs/VHvAxxyNhlI/AAAAAAAAGf0/haO4L8l3PkY/s542/Ga-14-23.jpg' /><br/><p>&quot;Ai yêu mến Thầy, thì sẽ giữ lời Thầy. Cha Thầy sẽ yêu mến người ấy. Cha Thầy và Thầy sẽ đến và ở lại với người ấy&quot; (Ga 14,23).</p>"
+rdm[126] = "<img src='https://lh3.googleusercontent.com/-_G2C6V0oQGQ/VHvA0iSlgGI/AAAAAAAAGf8/iZJyfflkFjI/s500/Lc-15-27-jpg.jpg' /><br/><p>&quot;Những gì không thể được đối với loài người, thì đều có thể được đối với Thiên Chúa&quot; (Lc 18,27).</p>"
+rdm[127] = "<img src='https://lh6.googleusercontent.com/-SVHhDuovBNQ/VHvA3-Cr1FI/AAAAAAAAGgE/0dsEd-PcdQg/s500/Mc-8-36.jpg' /><br/><p>&quot;Vì được cả thế giới mà phải thiệt mất mạng sống, thì người ta nào có lợi gì?&quot; (Mc 8,36)</p>"
+rdm[128] = "<img src='https://lh4.googleusercontent.com/-6Yr12pdYlS8/VHvA8jJK8II/AAAAAAAAGgM/stoQr4Uk-Ig/s595/Mt-6-50.jpg' /><br/><p>&quot;Cứ yên tâm, chính Thầy đây, đừng sợ!&quot; (Mc 6,50)</p>"
+rdm[129] = "<img src='https://lh6.googleusercontent.com/-EUi2niXb6y0/VHvA_FM67zI/AAAAAAAAGgU/F-Sx5ZN8f2E/s500/Mt-18-14.jpg' /><br/><p>&quot;Ai hạ mình xuống sẽ được nâng lên&quot; (Mt 18,14).</p>"
+rdm[130] = "<img src='https://lh5.googleusercontent.com/-26iIc4D2K8Y/VHu5HywK01I/AAAAAAAAGfE/t5_VT2TBHxM/s500/1Ga%25203%252018-500px.jpg' /><br/><p>&quot;Hỡi anh em là những người con bé nhỏ, chúng ta đừng yêu thương nơi đầu môi chót lưỡi, nhưng phải yêu thương cách chân thật và bằng việc làm&quot; (1Ga 3,18).</p>"
+rdm[131] = "<img src='https://lh5.googleusercontent.com/-26iIc4D2K8Y/VHu5HywK01I/AAAAAAAAGfE/t5_VT2TBHxM/s500/1Ga%25203%252018-500px.jpg' /><br/><p>&quot;Hỡi anh em là những người con bé nhỏ, chúng ta đừng yêu thương nơi đầu môi chót lưỡi, nhưng phải yêu thương cách chân thật và bằng việc làm&quot; (1Ga 3,18).</p>"
+rdm[132] = "<img src='https://lh6.googleusercontent.com/-SZzkbIJGaKA/VHNKI9brf1I/AAAAAAAAGeo/9W6SYpobAaU/s500/Gc%25203%252016-White.jpeg' /><br/><p>&quot;Ở đâu có ghen tương và tranh chấp, ở đấy có xáo trộn và đủ mọi thứ việc xấu xa&quot; (Gc 3,16).</p>"
+rdm[133] = "<img src='https://lh3.googleusercontent.com/-Cm9vP-HxX_o/VHNKID1LkCI/AAAAAAAAGek/C-xTRRdLIwo/s500/Gc%25203%252016-Orange.jpeg' /><br/><p>&quot;Ở đâu có ghen tương và tranh chấp, ở đấy có xáo trộn và đủ mọi thứ việc xấu xa&quot; (Gc 3,16).</p>"
+rdm[134] = "<img src='https://lh3.googleusercontent.com/-Dyccz2_kiz0/VL5xYB-szjI/AAAAAAAAEpo/no86z5DgCGY/s500/1Cor%252010-31.jpg' /><br/><p>&quot;Dù ăn, dù uống, hay làm bất cứ việc gì, anh em hãy làm tất cả để tôn vinh Thiên Chúa&quot; (1Cor 10,31).</p>"
+rdm[135] = "<img src='https://lh6.googleusercontent.com/-KuotpmLtMFI/VL5xYVmaJKI/AAAAAAAAEpw/02L4A17k8Fo/s500/2Cor%25201%25204-CHU-MAU-TRANG.jpg' /><br/><p>&quot;Người luôn nâng đỡ ủi an chúng ta trong mọi cơn gian nan thử thách, để sau khi  đã được Thiên Chúa nâng đỡ, chính chúng ta cũng biết an ủi những ai lâm cảnh gian nan khốn khó&quot; (2Cor 1,4).</p>"
+rdm[136] = "<img src='https://lh3.googleusercontent.com/-cWxfEfE1DBE/VL5xY17VaWI/AAAAAAAAEp0/GDnTZHlbzGY/s500/2Cor%25201%25204.jpg' /><br/><p>&quot;&#8220;Người luôn nâng đỡ ủi an chúng ta trong mọi cơn gian nan thử thách, để sau khi  đã được Thiên Chúa nâng đỡ, chính chúng ta cũng biết an ủi những ai lâm cảnh gian nan khốn khó&quot; (2Cor 1,4).</p>"
+rdm[137] = "<img src='https://lh3.googleusercontent.com/-0iqMNGZYDHQ/VL5xZxzBEyI/AAAAAAAAEp8/VvjRDeDHjUk/s500/2Cor%25208%25209-CHU-MAU-VANG.jpg' /><br/><p>&quot;Người vốn giàu sang phú quý, nhưng đã tự ý trở nên nghèo khó vì anh em, để  lấy cái nghèo của mình mà làm cho anh em trở nên giàu có&quot; (2Cor 8,9).</p>"
+rdm[138] = "<img src='https://lh6.googleusercontent.com/-lkBfuYD2F0U/VL5xa5hwMRI/AAAAAAAAEqI/6Q5Vicdrt3E/s500/2Cor%25208%25209.jpg' /><br/><p>&quot;Người vốn giàu sang phú quý, nhưng đã tự ý trở nên nghèo khó vì anh em, để  lấy cái nghèo của mình mà làm cho anh em trở nên giàu có&quot; (2Cor 8,9).</p>"
+rdm[139] = "<img src='https://lh4.googleusercontent.com/-a2TPhV3Mess/VL5xcLAFXaI/AAAAAAAAEqY/hMyS_mf4fS8/s500/2Cor%25209%252015.jpg' /><br/><p>&quot;Xin cảm tạ Thiên Chúa vì phúc lộc khôn tả Người ban&quot; (2Cor 9,15).</p>"
+rdm[140] = "<img src='https://lh6.googleusercontent.com/-LPr9C3XauCU/VL5xdLK3cyI/AAAAAAAAEqo/YZtrHVP2Da4/s500/Cl%25203%252013.jpg' />"
+rdm[141] = "<img src='https://lh6.googleusercontent.com/-zRG5ex8EaWI/VL5xd4KM7wI/AAAAAAAAEqs/tIxqSABWNuw/s500/Ep%25202%25204-5.jpg' />"
+rdm[142] = "<img src='https://lh5.googleusercontent.com/-fY_n-0RVKQQ/VL5xeuDkHbI/AAAAAAAAEq0/skuUb84YT0k/s500/Ep%25204%252032.jpg' />"
+rdm[143] = "<img src='https://lh4.googleusercontent.com/-ojbOTDIpVf8/VL5xfuo_JsI/AAAAAAAAErA/JahMDQyPtGQ/s500/Ep%25204-29.jpg' />"
+rdm[144] = "<img src='https://lh4.googleusercontent.com/-_KQuNdTVV0g/VL5xf03GylI/AAAAAAAAErE/4Imyd9IICwY/s500/Ep-2-8-MAUCAM.jpg' />"
+rdm[145] = "<img src='https://lh4.googleusercontent.com/-JL6YbDNOCf8/VL5xiHwJI6I/AAAAAAAAErQ/hOKOG8E2UFk/s640/Ep-2-8.jpg' />"
+rdm[146] = "<img src='https://lh4.googleusercontent.com/-qtnKbYIKk3k/VL5xioyH9QI/AAAAAAAAErU/WCF5UywAFbU/s500/Ep-4-29-2.jpg' />"
+rdm[147] = "<img src='https://lh4.googleusercontent.com/-MQOplGFiKbI/VL5xjI5FktI/AAAAAAAAErk/w24sV4pe_Rs/s500/Ga%252010%252027-chu-mau-trang.jpg' />"
+rdm[148] = "<img src='https://lh4.googleusercontent.com/-j76c16GR_JM/VL5xj1q2VwI/AAAAAAAAErs/oeMM2Skngdc/s500/Ga%252010%252027.jpg' />"
+rdm[149] = "<img src='https://lh6.googleusercontent.com/-KhiitLV1B08/VL5xkgmJQJI/AAAAAAAAErg/Iqx7NrZZ1Vs/s500/Ga%252011%252025-chu-mau-vang.jpg' />"
+rdm[150] = "<img src='https://lh5.googleusercontent.com/-QZgf9mLGotY/VL5xm-VLS1I/AAAAAAAAEr4/DNfPqkDEJ4M/s500/Ga%252011%252025.jpg' />"
+rdm[151] = "<img src='https://lh4.googleusercontent.com/-lyaX0UlR5pA/VL5xnN5FMLI/AAAAAAAAEr8/e_wOH0jg0jQ/s500/Ga%252012%252024-chu-mau-vang.jpg' />"
+rdm[152] = "<img src='https://lh4.googleusercontent.com/-vuRG8zoFxyg/VL5xoIXpWYI/AAAAAAAAEsE/AYX_eGV1-lc/s500/Ga%252012%252024.jpg' />"
+rdm[153] = "<img src='https://lh3.googleusercontent.com/-RhQxBrrNYPU/VL5xpr1aG6I/AAAAAAAAEso/rS9C-NspMA4/s500/Ga%252013%252034-CHU-MAU-TRANG.jpg' />"
+rdm[154] = "<img src='https://lh4.googleusercontent.com/-rNaqYk3A9SM/VL5xpLmtZKI/AAAAAAAAEsQ/3vIMsr957hM/s500/Ga%252013%252034.jpg' />"
+rdm[155] = "<img src='https://lh3.googleusercontent.com/-DCo-odUi4FI/VL5xqau_UaI/AAAAAAAAEsc/gE8NzerkQac/s500/Ga%252016-33-96dpi.jpg' />"
+rdm[156] = "<img src='https://lh4.googleusercontent.com/-LaAC-axexeI/VL5xq3buwII/AAAAAAAAEsk/edmn01GVlqU/s500/Ga%25206%252035-chu-mau-cam.jpg' />"
+rdm[157] = "<img src='https://lh4.googleusercontent.com/-6wj1fxUqB-s/VL5xrX8EAwI/AAAAAAAAEss/-GiR0M-cfw4/s500/Ga%25206%252035.jpg' />"
+rdm[158] = "<img src='https://lh4.googleusercontent.com/-XAv1QE6eJbY/VL5xsUE8keI/AAAAAAAAEs4/kCm_0a99rt4/s500/Ga%25206%252051.jpeg' />"
+rdm[159] = "<img src='https://lh4.googleusercontent.com/-pg5O-Q9f8cs/VL5xs9r6HQI/AAAAAAAAEs8/x3pBJwKjvig/s500/Ga%25208%252012-MAU-CAM.JPG' />"
+rdm[160] = "<img src='https://lh4.googleusercontent.com/-TCtzdYUNCzU/VL5xtjfvZuI/AAAAAAAAEtI/xF6mQtl0CzE/s500/Ga%25208%252012.JPG' />"
+rdm[161] = "<img src='https://lh4.googleusercontent.com/-DdfYElWKEvs/VL5xuIZdAVI/AAAAAAAAEtM/cD34VDOuf2Y/s500/Lc%252022%252040-mau-trang.jpg' />"
+rdm[162] = "<img src='https://lh4.googleusercontent.com/-qrkud29-COU/VL5xuvdHfSI/AAAAAAAAEtY/dLt-qNGLbp8/s500/Lc%252022%252040.jpg' />"
+rdm[163] = "<img src='https://lh6.googleusercontent.com/-h5fpsrEwtDI/VL5xvJnXzXI/AAAAAAAAEtg/ZQXfHq7cinA/s500/Lc%252024%252036-CHU-MAU-HONG.jpg' />"
+rdm[164] = "<img src='https://lh4.googleusercontent.com/-XOufQeMokOE/VL5xvmKTJ5I/AAAAAAAAEto/fShGFEJfe2k/s500/Lc%252024%252036.jpg' />"
+rdm[165] = "<img src='https://lh6.googleusercontent.com/-9pSxzeHf6BE/VL5xwGfL44I/AAAAAAAAEts/R2UJhYV9sl0/s500/Mt%252022%252021.jpg' />"
+rdm[166] = "<img src='https://lh4.googleusercontent.com/-P1X-EV9rAis/VL5xxG194BI/AAAAAAAAEt4/8VcrKJWmSS8/s500/Mt%252022%252037%252039.jpg' />"
+rdm[167] = "<img src='https://lh6.googleusercontent.com/-jceYlb9VgD4/VL5xxTNascI/AAAAAAAAEt8/cpH6a83GX14/s500/Mt%252023%252012-CHU-MAU-TRANG.jpg' />"
+rdm[168] = "<img src='https://lh4.googleusercontent.com/-Ez8duDM5g28/VL5xymJDdDI/AAAAAAAAEuE/pvkCnMHboDc/s500/Mt%252023%252012.jpg' />"
+rdm[169] = "<img src='https://lh5.googleusercontent.com/-qT6dCoC7fto/VL5xbOc-ZUI/AAAAAAAAEqM/XvYEVcyyX1U/s500/2Cor%25209%252015-CHU-MAU-TRANG.jpg' /><br/><p>&quot;Xin cảm tạ Thiên Chúa vì phúc lộc khôn tả Người ban&quot; (2Cor 9,15).</p>"
+
+rdm[170] = "<img src='https://lh3.googleusercontent.com/-YlgW-Q3p_AE/VX4tGZ_oYyI/AAAAAAAAFH8/kkhUBK3BXgc/s500/1Ga%2525201-9.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Đấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính&quot; (1Ga 1,9).</p>"
+
+rdm[171] = "<img src='https://lh3.googleusercontent.com/-UyYPoS0CIZM/VX4tGJAkpnI/AAAAAAAAFH4/QtF-ey2Rjik/s500/Gl%2525206-9-1200.jpg' /><br/><p>&quot;Khi làm điều thiện chúng ta đừng nản chí, vì đến mùa chúng ta sẽ được gặt, nếu không sờn lòng&quot; (Gl 6,9).</p>"
+
+rdm[172] = "<img src='https://lh3.googleusercontent.com/-hiy5nICbcmo/VX4tG7WPmMI/AAAAAAAAFIE/-ie2KxrlHm4/s557/Rm-2-4-vienMauXanh.jpg' /><br/><p>&quot;Hay là bạn coi thường lòng Chúa vô cùng nhân hậu, khoan dung, đại lượng, mà không nhận ra rằng: Thiên Chúa nhân hậu như thế là để thúc giục bạn hối cải sao?&quot; (Rm 2,4)</p>"
+
+rdm[173] = "<img src='https://lh3.googleusercontent.com/-n-2iUQEGhCA/VX4tLaAPSZI/AAAAAAAAFIU/aM0mR1_qEQk/s500/Tv%25252037-3a-V2.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot;  (Tv 37,3a).</p>"
+
+rdm[174] = "<img src='https://lh3.googleusercontent.com/-YEe5rOVHTy8/VX4tLBDi1KI/AAAAAAAAFIQ/uvpv40g4Wck/s550/Tv-145-8.jpg' /><br/><p>&quot;CHÚA là Ðấng từ bi nhân hậu, Người chậm giận và giàu tình thương&quot; (Tv 145,8).</p>"
+
+rdm[175] = "<img src='https://lh3.googleusercontent.com/-jqqQeEpM6MY/VX4uPS6BGLI/AAAAAAAAFJA/7kJTzCSnaxU/s500/1Ga%2525201-9-VienMauTim.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Đấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính&quot; (1Ga 1,9).</p>"
+
+rdm[176] = "<img src='https://lh3.googleusercontent.com/-ExJtdtJ17s0/VX4uPh4dAlI/AAAAAAAAFJE/s-IHQocDC4Q/s530/1Ga%2525201-9.jpg' /><br/><p>&quot;Nếu chúng ta thú nhận tội lỗi, Thiên Chúa là Đấng trung thành và công chính sẽ tha tội cho chúng ta, và sẽ thanh tẩy chúng ta sạch mọi điều bất chính&quot; (1Ga 1,9).</p>"
+
+rdm[177] = "<img src='https://lh3.googleusercontent.com/-AB0oB_MxSCo/VX4uOmARPhI/AAAAAAAAFI4/623cXuwTwcc/s500/Cn%25252029-25-CLC.jpg' /><br/><p>&quot;Nỗi sợ sệt khiến con người sa bẫy, nhưng ai cậy trông ĐỨC CHÚA thì được an toàn&quot; (Cn 29,25).</p>"
+
+rdm[178] = "<img src='https://lh3.googleusercontent.com/-9sDnQ2511BM/VX4uS2gsXwI/AAAAAAAAFJQ/RNm7WUBVl7E/s500/Cn%25252029-25-VienMAuTIm.jpg' /><br/><p>&quot;Nỗi sợ sệt khiến con người sa bẫy, nhưng ai cậy trông ĐỨC CHÚA thì được an toàn&quot; (Cn 29,25).</p>"
+
+rdm[179] = "<img src='https://lh3.googleusercontent.com/-cQT_L3-0HW4/VX4uTTAiCdI/AAAAAAAAFJY/VJ2jYzvQDGg/s500/Ga-15-12.jpg' /><br/><p>&quot;Đây là điều răn của Thầy: Anh em hãy yêu thương nhau như Thầy đã yêu thương anh em&quot; (Ga 15,12).</p>"
+
+rdm[180] = "<img src='https://lh3.googleusercontent.com/-gVEmb8Pe8a4/VX4uTk47UvI/AAAAAAAAFJc/ZTzTwJEfycU/s500/Ga-20-29-ThienChuaLaTinhYeu.jpg' /><br/><p>&quot;Phúc thay những người không thấy mà tin!&quot; (Ga 20,29)</p>"
+
+rdm[181] = "<img src='https://lh3.googleusercontent.com/-Y25B_FUSoL0/VX4uU7qlThI/AAAAAAAAFJo/Czm1pkDehzQ/s530/Ga-20-29_mauCam.jpg' /><br/><p>&quot;Phúc thay những người không thấy mà tin!&quot; (Ga 20,29)</p>"
+
+rdm[182] = "<img src='https://lh3.googleusercontent.com/-HViebQAe_Jo/VX4uU9WVmXI/AAAAAAAAFJw/lPQQ4XBZ9VE/s500/Gl%2525206-9-1200.jpg' /><br/><p>&quot;Khi làm điều thiện chúng ta đừng nản chí, vì đến mùa chúng ta sẽ được gặt, nếu không sờn lòng&quot; (Gl 6,9).</p>"
+
+rdm[183] = "<img src='https://lh3.googleusercontent.com/-O2CxEGEI3M0/VX4uVbyw0II/AAAAAAAAFJ0/3hLCop0HaS4/s500/Gl%2525206-9-1200px.jpg' /><br/><p>&quot;Khi làm điều thiện chúng ta đừng nản chí, vì đến mùa chúng ta sẽ được gặt, nếu không sờn lòng&quot; (Gl 6,9).</p>"
+
+rdm[184] = "<img src='https://lh3.googleusercontent.com/-ENxJpBY78Tg/VX4uXPNGZ7I/AAAAAAAAFKM/o54KfpfZwBY/s500/Gl%2525206-9-2048px.jpg' /><br/><p>&quot;Khi làm điều thiện chúng ta đừng nản chí, vì đến mùa chúng ta sẽ được gặt, nếu không sờn lòng&quot; (Gl 6,9).</p>"
+
+rdm[185] = "<img src='https://lh3.googleusercontent.com/-4oVnD8ad9AI/VX4uXSZIj5I/AAAAAAAAFKI/R2r6_IlFKEw/s500/Gl%2525206-9-VienMauTim.jpg' /><br/><p>&quot;Khi làm điều thiện chúng ta đừng nản chí, vì đến mùa chúng ta sẽ được gặt, nếu không sờn lòng&quot; (Gl 6,9).</p>"
+
+rdm[186] = "<img src='https://lh3.googleusercontent.com/-RqmewXg3qRs/VX4uXKp43LI/AAAAAAAAFKA/7ExdadxbNZk/s530/Hc%25252021-1-500px-MauCam.jpg' /><br/><p>&quot;Con ơi, đã trót phạm tội thì đừng phạm nữa! Hãy xin ơn tha thứ những tội con đã phạm&quot; (Hc 21,1).</p>"
+
+rdm[187] = "<img src='https://lh3.googleusercontent.com/-zI7uB07nldE/VX4uYyvwjvI/AAAAAAAAFKc/HmVzDhjw0vc/s500/Hc%25252021-1-CHATLUONGCAO.jpg' /><br/><p>&quot;Con ơi, đã trót phạm tội thì đừng phạm nữa! Hãy xin ơn tha thứ những tội con đã phạm&quot; (Hc 21,1).</p>"
+
+rdm[188] = "<img src='https://lh3.googleusercontent.com/-d6aCD3mj5BM/VX4ubBQzHbI/AAAAAAAAFK8/8DGaAPhuaw8/s530/Hc-2-11-VienMauCam.jpg' /><br/><p>&quot;Vì Ðức Chúa là Ðấng nhân từ và hay thương xót: Người thứ tha tội lỗi và cứu vớt trong lúc gian truân&quot; (Hc 2,11).</p>"
+
+rdm[189] = "<img src='https://lh3.googleusercontent.com/-6nlj6f5jEx4/VX4uboFx55I/AAAAAAAAFLA/H7Efs3ytp-s/s530/Hc-2-11-VienMauXanh.jpg' /><br/><p>&quot;Vì Ðức Chúa là Ðấng nhân từ và hay thương xót: Người thứ tha tội lỗi và cứu vớt trong lúc gian truân&quot; (Hc 2,11).</p>"
+
+rdm[190] = "<img src='https://lh3.googleusercontent.com/-sR9FU_e_G6w/VX4ub3KU1RI/AAAAAAAAFLE/4y77XZeS9RA/s500/Hc-2-11.jpg' /><br/><p>&quot;Vì Ðức Chúa là Ðấng nhân từ và hay thương xót: Người thứ tha tội lỗi và cứu vớt trong lúc gian truân&quot; (Hc 2,11).</p>"
+
+rdm[191] = "<img src='https://lh3.googleusercontent.com/-A2lqlgKpKpY/VX4uc5ShLeI/AAAAAAAAFLM/8QW-XKS8QZM/s500/Hc-2-11VIENMAUTIM.jpg' /><br/><p>&quot;Vì Ðức Chúa là Ðấng nhân từ và hay thương xót: Người thứ tha tội lỗi và cứu vớt trong lúc gian truân&quot; (Hc 2,11).</p>"
+
+rdm[192] = "<img src='https://lh3.googleusercontent.com/-5lUxyn3Zi00/VX4uZassShI/AAAAAAAAFKg/L7J9hvPhvEc/s500/Hc-17-29-ChatLuongCao.jpg' /><br/><p>&quot;&#8220;Lòng lân tuất của Đức Chúa cao cả dường bao, ơn tha thứ dành cho kẻ trở lại với Người lớn lao biết mấy!&quot; ((Hc 17,29)</p>"
+
+rdm[193] = "<img src='https://lh3.googleusercontent.com/-LH1l4d5Hpp4/VX4uZgtyQYI/AAAAAAAAFKk/wGgj8jcgqzQ/s530/Hc-17-29-VienMauCam.jpg' /><br/><p>&quot;&#8220;Lòng lân tuất của Đức Chúa cao cả dường bao, ơn tha thứ dành cho kẻ trở lại với Người lớn lao biết mấy!&quot; ((Hc 17,29)</p>"
+
+rdm[194] = "<img src='https://lh3.googleusercontent.com/-yeKzuIb8m4c/VX4uaU3FEWI/AAAAAAAAFKs/yfGfJQDsQpA/s530/Hc-17-29-VienMauXanh.jpg' /><br/><p>&quot;&#8220;Lòng lân tuất của Đức Chúa cao cả dường bao, ơn tha thứ dành cho kẻ trở lại với Người lớn lao biết mấy!&quot; ((Hc 17,29)</p>"
+
+rdm[195] = "<img src='https://lh3.googleusercontent.com/-nY3wQoNKX-E/VX4ud32FUuI/AAAAAAAAFLY/WUhWi6oGM1I/s530/Hs%2525206%2525206-500px-vienMauCam.jpg' /><br/><p>&quot;Vi&#768; Ta muô&#769;n ti&#768;nh yêu chư&#769; không câ&#768;n hy lê&#771;, Thi&#769;ch đươ&#803;c ca&#769;c ngươi nhâ&#803;n biê&#769;t hơn la&#768; cu&#777;a lê&#771; toa&#768;n thiêu&quot; (Hs 6,6).</p>"
+
+rdm[196] = "<img src='https://lh3.googleusercontent.com/-fc0W_vS9u30/VX4ueO95yYI/AAAAAAAAFLc/Q1gPC5iXOIc/s530/Hs%2525206%2525206-500px-vienMauXanh.jpg' /><br/><p>&quot;Vi&#768; Ta muô&#769;n ti&#768;nh yêu chư&#769; không câ&#768;n hy lê&#771;, Thi&#769;ch đươ&#803;c ca&#769;c ngươi nhâ&#803;n biê&#769;t hơn la&#768; cu&#777;a lê&#771; toa&#768;n thiêu&quot; (Hs 6,6).</p>"
+
+rdm[197] = "<img src='https://lh3.googleusercontent.com/-zKDuBGWWICU/VX4uen3svSI/AAAAAAAAFLk/DdCEnDYOW_Q/s500/Hs%2525206%2525206-500px.jpg' /><br/><p>&quot;Vi&#768; Ta muô&#769;n ti&#768;nh yêu chư&#769; không câ&#768;n hy lê&#771;, Thi&#769;ch đươ&#803;c ca&#769;c ngươi nhâ&#803;n biê&#769;t hơn la&#768; cu&#777;a lê&#771; toa&#768;n thiêu&quot; (Hs 6,6).</p>"
+
+rdm[198] = "<img src='https://lh3.googleusercontent.com/-1VTA_18Ztgw/VX4ufxyDxoI/AAAAAAAAFLw/s_4UnPc0veM/s530/Lc-6-37-500px-vienmaucam.jpg' /><br/><p>&quot;Đừng xét đoán để khỏi bị xét đoán,đừng kết án để khỏi bị kết án, hãy tha thứ thì sẽ được tha thứ, hãy cho thì sẽ được cho lại&quot; (Lc 6,37).</p>"
+
+rdm[199] = "<img src='https://lh3.googleusercontent.com/-y8NlMs41egg/VX4uf7lqDNI/AAAAAAAAFL4/a9xNa-PWGmg/s530/Lc-6-37-500px-vienmauxanh.jpg' /><br/><p>&quot;Đừng xét đoán để khỏi bị xét đoán,đừng kết án để khỏi bị kết án, hãy tha thứ thì sẽ được tha thứ, hãy cho thì sẽ được cho lại&quot; (Lc 6,37).</p>"
+
+rdm[200] = "<img src='https://lh3.googleusercontent.com/-cvRIQQBs3U0/VX4uga3NdLI/AAAAAAAAFL8/5QmX45LDySU/s500/Lc-6-37-500px.jpg' /><br/><p>&quot;Đừng xét đoán để khỏi bị xét đoán,đừng kết án để khỏi bị kết án, hãy tha thứ thì sẽ được tha thứ, hãy cho thì sẽ được cho lại&quot; (Lc 6,37).</p>"
+
+rdm[201] = "<img src='https://lh3.googleusercontent.com/-OMDWKH9jVUc/VX4uh5XKmgI/AAAAAAAAFMQ/YfJtSNnqrHw/s500/Lc-6-37.jpg' /><br/><p>&quot;Đừng xét đoán để khỏi bị xét đoán,đừng kết án để khỏi bị kết án, hãy tha thứ thì sẽ được tha thứ, hãy cho thì sẽ được cho lại&quot; (Lc 6,37).</p>"
+
+rdm[202] = "<img src='https://lh3.googleusercontent.com/-nCWtmvAtCeo/VX4uh0B3bwI/AAAAAAAAFMI/anmukm_8q14/s500/Mt%2525205-23-24-Orange-500px.jpg' /><br/><p>&quot;Nếu khi anh sắp dâng lễ vật trước bàn thờ, mà sực nhớ có người anh em đang có chuyện bất bình với anh, thì hãy để của lễ lại đó trước bàn thờ, đi làm hòa với người anh em ấy đã, rồi trở lại dâng lễ vật của mình&quot; (Mt 5,23-24).</p>"
+
+rdm[203] = "<img src='https://lh3.googleusercontent.com/-RMq0pvXVbhc/VX4uiaMEHYI/AAAAAAAAFMU/p0mLqAKTwec/s550/Mt%2525205-23-24-Orange-550px.jpg' /><br/><p>&quot;Nếu khi anh sắp dâng lễ vật trước bàn thờ, mà sực nhớ có người anh em đang có chuyện bất bình với anh, thì hãy để của lễ lại đó trước bàn thờ, đi làm hòa với người anh em ấy đã, rồi trở lại dâng lễ vật của mình&quot; (Mt 5,23-24).</p>"
+
+rdm[204] = "<img src='https://lh3.googleusercontent.com/-QxxX_6evmQw/VX4ulMQyyNI/AAAAAAAAFMs/Dk7JMyENT0A/s550/Rm-2-4-MauTim.jpg' /><br/><p>&quot;Hay là bạn coi thường lòng Chúa vô cùng nhân hậu, khoan dung, đại lượng, mà không nhận ra rằng: Thiên Chúa nhân hậu như thế là để thúc giục bạn hối cải sao?&quot; (Rm 2,4)</p>"
+
+rdm[205] = "<img src='https://lh3.googleusercontent.com/-LTqR1LhvSt4/VX4uj8CXtAI/AAAAAAAAFMc/ZjGFjJqiPiE/s500/Rm-2-4-v2.jpg' /><br/><p>&quot;Hay là bạn coi thường lòng Chúa vô cùng nhân hậu, khoan dung, đại lượng, mà không nhận ra rằng: Thiên Chúa nhân hậu như thế là để thúc giục bạn hối cải sao?&quot; (Rm 2,4)</p>"
+
+rdm[206] = "<img src='https://lh3.googleusercontent.com/-Mkp_G1PiIiM/VX4ulnMPI6I/AAAAAAAAFMw/J8ypStbN6yQ/s557/Rm-2-4-vienMauCam.jpg' /><br/><p>&quot;Hay là bạn coi thường lòng Chúa vô cùng nhân hậu, khoan dung, đại lượng, mà không nhận ra rằng: Thiên Chúa nhân hậu như thế là để thúc giục bạn hối cải sao?&quot; (Rm 2,4)</p>"
+
+rdm[207] = "<img src='https://lh3.googleusercontent.com/-S17OADzUj5M/VX4umGhUPXI/AAAAAAAAFM0/I4_Aj05E9hA/s530/Rm-2-4-vienMauXanh.jpg' /><br/><p>&quot;Hay là bạn coi thường lòng Chúa vô cùng nhân hậu, khoan dung, đại lượng, mà không nhận ra rằng: Thiên Chúa nhân hậu như thế là để thúc giục bạn hối cải sao?&quot; (Rm 2,4)</p>"
+
+rdm[208] = "<img src='https://lh3.googleusercontent.com/-J0B6-uiX9UA/VX4umpWaWEI/AAAAAAAAFM8/-QY60Ul4GGw/s527/Rm-2-4.jpg' /><br/><p>&quot;Hay là bạn coi thường lòng Chúa vô cùng nhân hậu, khoan dung, đại lượng, mà không nhận ra rằng: Thiên Chúa nhân hậu như thế là để thúc giục bạn hối cải sao?&quot; (Rm 2,4)</p>"
+
+rdm[209] = "<img src='https://lh3.googleusercontent.com/-6kqs-0s8Kus/VX4uocUWhJI/AAAAAAAAFNI/WG-L84aykN4/s530/Tv%25252037-3a-V2.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot; (Tv 37,3a).</p>"
+
+rdm[210] = "<img src='https://lh3.googleusercontent.com/-WbbzpXyTjCY/VX4upk6cQlI/AAAAAAAAFNY/48yQsHUf-O8/s500/Tv%25252037-3a.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot; (Tv 37,3a).</p>"
+
+rdm[211] = "<img src='https://lh3.googleusercontent.com/-B0Y9bvO1yxw/VX4uqWWctxI/AAAAAAAAFNg/WRuZw4-Dx_o/s500/Tv-37-5-MauTim-500px.jpg' /><br/><p>&quot;Hãy ký thác đường đời cho CHÚA, tin tưởng vào Người, Người sẽ ra tay&quot; (Tv 37,5).</p>"
+
+rdm[212] = "<img src='https://lh3.googleusercontent.com/-PohXbBmNPnY/VX4uqu1QcxI/AAAAAAAAFNk/QMAzrmtmpWM/s500/Tv-37-5-Orange-500px.jpg' /><br/><p>&quot;Hãy ký thác đường đời cho CHÚA, tin tưởng vào Người, Người sẽ ra tay&quot; (Tv 37,5).</p>"
+
+rdm[213] = "<img src='https://lh3.googleusercontent.com/-ZlCmD3DEpgs/VX4urfBX8NI/AAAAAAAAFNs/ZNNYik4ZzBU/s500/Tv-37-5-vienMauXanh-500px.jpg' /><br/><p>&quot;Hãy ký thác đường đời cho CHÚA, tin tưởng vào Người, Người sẽ ra tay&quot; (Tv 37,5).</p>"
+
+rdm[214] = "<img src='https://lh3.googleusercontent.com/-MBNWljOLN0g/VX4uo4djuKI/AAAAAAAAFNQ/14F-TTm1OiM/s580/Tv-145-8.jpg' /><br/><p>&quot;CHÚA là Ðấng từ bi nhân hậu, Người chậm giận và giàu tình thương&quot; (Tv 145,8).</p>"
+
+rdm[215] = "<img src='https://lh3.googleusercontent.com/-6kqs-0s8Kus/VX4uocUWhJI/AAAAAAAAFNI/WG-L84aykN4/s530/Tv%25252037-3a-V2.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot; (Tv 37,3a).</p>"
+
+rdm[216] = "<img src='https://lh3.googleusercontent.com/-6kqs-0s8Kus/VX4uocUWhJI/AAAAAAAAFNI/WG-L84aykN4/s530/Tv%25252037-3a-V2.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot; (Tv 37,3a).</p>"
+
+rdm[217] = "<img src='https://lh3.googleusercontent.com/-6kqs-0s8Kus/VX4uocUWhJI/AAAAAAAAFNI/WG-L84aykN4/s530/Tv%25252037-3a-V2.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot; (Tv 37,3a).</p>"
+
+rdm[218] = "<img src='https://lh3.googleusercontent.com/-6kqs-0s8Kus/VX4uocUWhJI/AAAAAAAAFNI/WG-L84aykN4/s530/Tv%25252037-3a-V2.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot; (Tv 37,3a).</p>"
+
+rdm[219] = "<img src='https://lh3.googleusercontent.com/-6kqs-0s8Kus/VX4uocUWhJI/AAAAAAAAFNI/WG-L84aykN4/s530/Tv%25252037-3a-V2.jpg' /><br/><p>&quot;Cứ tin tưởng vào CHÚA và làm điều thiện&quot; (Tv 37,3a).</p>"
+
+rdm[220] = "<img src='https://lh3.googleusercontent.com/-UyYPoS0CIZM/VX4tGJAkpnI/AAAAAAAAFH4/QtF-ey2Rjik/s500/Gl%2525206-9-1200.jpg' /><br/><p>&quot;Khi làm điều thiện chúng ta đừng nản chí, vì đến mùa chúng ta sẽ được gặt, nếu không sờn lòng&quot; (Gl 6,9).</p>"
+
+rdm[221] = "<img src='https://lh3.googleusercontent.com/-s9WmStJjImM/VdQ76E83QfI/AAAAAAAAFy0/LQFR-LhKn_w/s720-Ic42/Hc-5-9-10.jpg' /><br/><p>&quot;Đừng có gió nào cũng theo, đường nào cũng bước,<br/>như một tên tội lỗi lật lọng.<br/>Hãy giữ vững xác tín của mình,<br/>và lời con phải trước sau như một&quot; <br/>(Hc 5,9-10).</p>"
+
+rdm[222] = "<img src='https://lh3.googleusercontent.com/-oSFil7Z-wJ0/VdQ762Kyx2I/AAAAAAAAFy8/OszKYuWrntY/s640-Ic42/Hc-51-29.jpg' /><br/><p>&quot;Ước chi tâm hồn các bạn được hoan hỷ,<br/>vì Đức Chúa đầy lòng thương xót từ bi,<br/>và các bạn đừng xấu hổ khi ca tụng Người&quot;<br/>(Hc 51,29).</p>"
+
+rdm[223] = "<img src='https://lh3.googleusercontent.com/-Ch2h5_9SX90/VdQ77xrIvVI/AAAAAAAAFzE/C1jXgkbD0wk/s640-Ic42/Hc-7-33.jpg' /><br/><p>&quot;Hãy làm ơn cho mọi người còn sống,<br/>ngay cả với người đã chết, cũng đừng từ chối làm ơn&quot;<br/> (Hc 7,33).</p>"
+
+rdm[224] = "<img src='https://lh3.googleusercontent.com/-Dr0kLVGDsPc/VdQ78wkkPPI/AAAAAAAAFzM/-YmuNDwWYeM/s640-Ic42/Hc-7-34-35.jpg' /><br/><p>&quot;Đừng ngoảnh mặt không nhìn những ai đang than khóc,<br/>với những người sầu khổ, con hãy biết chia buồn.<br/>Đừng ngại thăm nom người đau ốm,<br/>vì nhờ những việc như thế mà con sẽ được mến yêu&quot; <br/>(Hc 7,34-35).</p>"
+
+rdm[225] = "<img src='https://lh3.googleusercontent.com/-uRr0HDCQwW4/VdQ7-NmI7mI/AAAAAAAAFzY/mFm6IKMtFLc/s640-Ic42/Kn%25252012-2.jpg' /><br/><p>&quot;Vì thế, những ai sa ngã, Chúa sửa dạy từ từ.<br/>Chúa cảnh cáo họ, nhắc cho họ nhớ họ đã phạm tội gì,<br/>để họ bỏ điều ác mà tin vào Chúa&quot; <br/>(Kn 12,2).</p>"
+
+rdm[226] = "<img src='https://lh3.googleusercontent.com/-Low8LkowblQ/VdQ7-qzZXbI/AAAAAAAAFzc/-I1QrXOFM90/s640-Ic42/Kn-11-3.jpg' /><br/><p>&quot;Chúa xót thương hết mọi người,<br/>vì Chúa làm được hết mọi sự.<br/>Chúa nhắm mắt làm ngơ, không nhìn đến tội lỗi loài người,<br/>để họ còn ăn năn hối cải&quot;<br/> (Kn 11,23).</p>"
+
+rdm[227] = "<img src='https://lh3.googleusercontent.com/-l8iBmKUWJ48/VdQ8AU_z_NI/AAAAAAAAFzk/ioHCLN8xBQo/s640-Ic42/Lc%25252011-13.jpg' /><br/><p>&quot;Nếu anh em vốn là những kẻ xấu mà còn biết cho con cái mình của tốt của lành, phương chi Cha trên trời lại không ban Thánh Thần cho những kẻ kêu xin Người sao?&quot; (Lc 11,13)</p>"
+
+rdm[228] = "<img src='https://lh3.googleusercontent.com/-YJXahOHnIwQ/VdQ8BfBtoWI/AAAAAAAAFzs/Wbpz-9J6JsA/s640-Ic42/Lc-%2525206-37-V1.jpg' /><br/><p>&quot;Anh em đừng xét đoán, thì anh em sẽ không bị Thiên Chúa xét đoán. Anh em đừng lên án, thì sẽ không bịThiên Chúa lên án. Anh em hãy tha thứ, thì sẽ được Thiên Chúa thứ tha&quot;(Lc 6,37).</p>"
+
+rdm[229] = "<img src='https://lh3.googleusercontent.com/-BBLP-QCOuCw/VdQ8CXhBhMI/AAAAAAAAFz0/dZH06WlJMy0/s640-Ic42/Lc-%2525206-37.jpg' /><br/><p>&quot;Anh em đừng xét đoán, thì anh em sẽ không bị Thiên Chúa xét đoán. Anh em đừng lên án, thì sẽ không bịThiên Chúa lên án. Anh em hãy tha thứ, thì sẽ được Thiên Chúa thứ tha&quot;  (Lc 6,37).</p>"
+
+rdm[230] = "<img src='https://lh3.googleusercontent.com/-Hlhyic3jlLs/VdQ8D8V7AmI/AAAAAAAAF0A/6frV93wBFGA/s640-Ic42/Lc-5-32.jpg' /><br/><p>&quot;Tôi không đến để kêu gọi người công chính, mà để kêu gọi người tội lỗi sám hối ăn năn&quot; (Lc 5,32).</p>"
+
+rdm[231] = "<img src='https://lh3.googleusercontent.com/-CePimy23CiA/VdQ8ER7k24I/AAAAAAAAF0E/84UAyCC2lf8/s640-Ic42/Lc-6-38.jpg' /><br/><p>&quot;Anh em hãy cho, thì sẽ được Thiên Chúa cho lại. Người sẽ đong cho anh em đấu đủ lượng đã dằn, đã lắc và đầy tràn, mà đổ vào vạt áo anh em. Vì anh em đong bằng đấu nào, thì Thiên Chúa sẽ đong lại cho anh em bằng đấu ấ&quot;  (Lc 6,38).</p>"
+
+rdm[232] = "<img src='https://lh3.googleusercontent.com/-JU4vHhP-tMs/VdQ8IAQByyI/AAAAAAAAF0g/-MGhSJaJqO8/s640-Ic42/Mt%2525206-1.jpg' /><br/><p>&quot;Khi làm việc lành phúc  đức, anh em phải coi chừng, chớ có phô trương cho thiên hạ thấy. Bằng không, anh em sẽ chẳng được Cha của anh em, Đấng ngự trên trời, ban thưởng&quot;  (Mt 6,1).</p>"
+
+rdm[233] = "<img src='https://lh3.googleusercontent.com/-vHnbyv4vF7Q/VdQ8HNS0C2I/AAAAAAAAF0U/msyFc-1ysHM/s640-Ic42/Nk-1-7.jpg' /><br/><p>&quot;ĐỨC CHÚA thật tốt lành,<br/>chính Người là thành luỹ chở che trong những ngày khốn quẫn.<br/>Người biết những ai ẩn náu bên Người&quot; <br/>  (Nk 1,7).</p>"
+
+rdm[234] = "<img src='https://lh3.googleusercontent.com/-NrV0_rZ23ck/VdQ8IW2Wk2I/AAAAAAAAF0k/h7zSjOwN7EY/s640-Ic42/Tb%25252012-8-2.jpg' /><br/><p>&quot;Cầu nguyện kèm theo đời sống chân thật, bố thí đi  đôi với  đời sống công chính, thì tốt hơn có của mà ở bất công; làm phúc bố thí thì đẹp hơn là tích trữ vàng bạc&quot;  (Tb 12,8).</p>"
+
+rdm[235] = "<img src='https://lh3.googleusercontent.com/-BqHS-1SSw78/VdQ8LTyt1SI/AAAAAAAAF00/nLqEFCDJbB8/s640-Ic42/Tb%2525204-16.jpg' /><br/><p>&quot;Hãy chia cơm sẻ áo cho người đói rách. Phàm là của dư thừa, con hãy lấy mà bố thí, và mắt con đừng có so đo trong việc bố thí của con&quot;   (Tb 4,16).</p>"
+
+rdm[236] = "<img src='https://lh3.googleusercontent.com/-Z9HwyKY6yA4/VdQ8J9tPz9I/AAAAAAAAF0s/k-RSbH3PKy0/s640-Ic42/Xh%25252034%2525206-7B.jpg' /><br/><p>&quot;Thiên Chúa nhân hậu và từ bi, hay nén giận, giàu nhân nghĩa và thành tín, giữ lòng nhân nghĩa với muôn ngàn thế hệ, chịu đựng lỗi lầm, tội ác và tội lỗi&quot;  (Xh 34,6-7b).</p>"
+
+rdm[237] = "<img src='https://lh3.googleusercontent.com/-3x4vdkG3_lY/Vf-hNTaiv0I/AAAAAAAAHvQ/FqXmywKqXS4/s640-Ic42/Tv-34-20.jpg' /><br/><p>&quot;Người công chính gặp nhiều nỗi gian truân,<br/>nhưng CHÚA giúp họ luôn thoát khỏi&quot;  (Tv 34,20).</p>"
+
+rdm[238] = "<img src='https://lh3.googleusercontent.com/-ZFl7czCVK5E/Vf-jBDveDNI/AAAAAAAAHv0/Ndgn1-GOuxc/s640-Ic42/Tv-34-9.jpg' /><br/><p>&quot;Hãy nghiệm xem CHÚA tốt lành biết mấy:<br/>hạnh phúc thay kẻ ẩn náu bên Người!&quot;(Tv 34,9)</p>"
+
+rdm[239] = "<img src='https://lh3.googleusercontent.com/-YcM9WVPpjww/Vf-jRxkx_QI/AAAAAAAAHwE/rmTJ8hB6eME/s640-Ic42/Tv-34-9-v2.jpg' /><br/><p>&quot;Hãy nghiệm xem CHÚA tốt lành biết mấy:<br/>hạnh phúc thay kẻ ẩn náu bên Người!&quot;(Tv 34,9)</p>"
+
+rdm[240] = "<img src='https://lh3.googleusercontent.com/-DCJO0jD15BE/VfzR1lRkXFI/AAAAAAAAHm8/C0ZNiwJvuwI/s640-Ic42/Lc815-png.jpg' /><br/><p>&quot;Hạt giống rơi vào đất tốt: đó là những kẻ nghe Lời với tấm lòng cao thượng và quảng đại, rồi nắm giữ và nhờ kiên trì mà sinh hoa kết quả&quot;(Lc 8,15).</p>"
+
+rdm[241] = "<img src='https://lh3.googleusercontent.com/-B9b-X3c2VJc/VfDGFmjgkGI/AAAAAAAAF6U/Rzi34SoG_nk/s1600-Ic42/Cn-30-31.jpg' /><br/><p>&quot;Duyên dáng là giả trá, sắc đẹp là phù vân.<br/>Người phụ nữ kính sợ ĐỨC CHÚA <br/>mới đáng cho người đời ca tụng&quot; (Châm ngôn 31,30).</p>"
+
+rdm[242] = "<img src='https://lh3.googleusercontent.com/-9sNgWa7vXN8/VfDGGrOaGMI/AAAAAAAAF6k/71iPYSNIF5w/s1600-Ic42/Gr-29-12-png.jpg' /><br/><p>&quot;Bấy giờ các ngươi kêu cầu Ta, các ngươi đến cầu nguyện với Ta, Ta sẽ nhận lời các ngươi. Các ngươi sẽ tìm Ta và các ngươi sẽ thấy, bởi vì các ngươi sẽ hết lòng kiếm Ta&quot; (Gr 29,12).</p>"
+
+rdm[243] = "<img src='https://lh3.googleusercontent.com/-jSJCSIVKcLw/VfDGGYJnZUI/AAAAAAAAF6g/AIkVGLt2o0g/s640-Ic42/Lc-11-28.jpg' /><br/><p>&quot;Phúc thay kẻ lắng nghe và tuân giữ lời Thiên Chúa&quot; (Lc 11, 28 ).</p>"
+
+rdm[244] = "<img src='https://lh3.googleusercontent.com/-PLUa8nRhWrY/VfDGpUquF4I/AAAAAAAAF60/aL1pRjVetcs/s640-Ic42/Cn-30-31-mauvang.jpg' /><br/><p>&quot;Duyên dáng là giả trá, sắc đẹp là phù vân.<br/>Người phụ nữ kính sợ ĐỨC CHÚA <br/>mới đáng cho người đời ca tụng&quot; (Châm ngôn 31,30).</p>"
+
+rdm[245] = "<img src='https://lh3.googleusercontent.com/-RMtoCHZo1P0/VfFbX1Z7q2I/AAAAAAAAF-Q/Hj6r3bLuE2A/s640-Ic42/Mt-22-37-39-v1.jpg' /><br/><p>&quot;Ngươi phải yêu mến Ðức Chúa, Thiên Chúa của ngươi, hết lòng, hết linh hồn và hết trí khôn ngươi&#8230; Ngươi phải yêu người thân cận như chính mình&quot; (Mt 22:37,39).</p>"
+
+rdm[246] = "<img src='https://lh3.googleusercontent.com/-FGQbpwccp-Y/VfFhA80L4pI/AAAAAAAAF-o/ZJL2b8H7Ehw/s640-Ic42/Mc-4-24.jpg' /><br/><p>&quot;Anh em đong đấu nào, thì Thiên Chúa cũng sẽ đong đấu ấy choanh em, và còn cho anh em hơn nữa&quot; (Mc 4,24).</p>"
+
+rdm[247] = "<img src='https://lh3.googleusercontent.com/-vCnA20IJWSc/VfFl27QCvrI/AAAAAAAAF_M/ICbmJ3LhcW4/s640-Ic42/Mc-11-25.jpg' /><br/><p>&quot;Khi anh em đứng cầu nguyện, nếu anh em có chuyện bất bình với ai, thì hãy tha thứ cho họ, để Cha của anh em là Đấng ngự trên trời, cũng tha lỗi cho anh em&quot; (Mc 11,25).</p>"
+
+rdm[248] = "<img src='https://lh3.googleusercontent.com/-cTC-KP33FiM/VfFpGfzNKYI/AAAAAAAAGAU/42p0-w7dyR0/s640-Ic42/Mc-13-13.jpg' /><br/><p>&quot;Vì danh Thầy, anh em sẽ bị mọi người thù ghét. Nhưng kẻ nào bền chí đến cùng, kẻ  ấy sẽ được cứu thoát&quot; (Mc 13,13).</p>"
+
+rdm[249] = "<img src='https://lh3.googleusercontent.com/-MpKVWSlH7YQ/VfKXKJb4u8I/AAAAAAAAGA8/2Ctr3xMFX_Q/s640-Ic42/Hc-39-16-V2-1.jpg' /><br/><p>&quot;Mọi việc Ðức Chúa làm đều hoàn toàn tốt đẹp,<br/> mỗi mệnh lệnh Người ban sẽ được thi hành đúng thời đúng lúc.<br/> Không có lý do gì để hỏi: &quot;Chuyện gì thế? &quot; và &quot;Sao lại xảy ra?&quot; <br/>Vì đến thời đến buổi mọi chuyện sẽ có lời giải đáp&quot; (Hc 39,16).</p>"
+
+rdm[250] = "<img src='https://lh3.googleusercontent.com/-S6rfP_Dl3hU/VfKXMILwcEI/AAAAAAAAGBI/g0QFVIVuyO4/s640-Ic42/Hc-39-16-V2.jpg' /><br/><p>&quot;Mọi việc Ðức Chúa làm đều hoàn toàn tốt đẹp,<br/> mỗi mệnh lệnh Người ban sẽ được thi hành đúng thời đúng lúc.<br/> Không có lý do gì để hỏi: &quot;Chuyện gì thế? &quot; và &quot;Sao lại xảy ra?&quot; <br/>Vì đến thời đến buổi mọi chuyện sẽ có lời giải đáp&quot; (Hc 39,16).</p>"
+
+rdm[251] = "<img src='https://lh3.googleusercontent.com/-EDF9OVNu19Q/VfKXMX1CPkI/AAAAAAAAGBM/e2f8jWs0stg/s640-Ic42/Hc-39-16-V3.jpg' /><br/><p>&quot;Mọi việc Ðức Chúa làm đều hoàn toàn tốt đẹp,<br/> mỗi mệnh lệnh Người ban sẽ được thi hành đúng thời đúng lúc.<br/> Không có lý do gì để hỏi: &quot;Chuyện gì thế? &quot; và &quot;Sao lại xảy ra?&quot; <br/>Vì đến thời đến buổi mọi chuyện sẽ có lời giải đáp&quot; (Hc 39,16).</p>"
+
+rdm[252] = "<img src='https://lh3.googleusercontent.com/-1aO9rJf2uDo/VfKXOZ9VvLI/AAAAAAAAGBU/0PvNjY0cSkE/s640-Ic42/Hc-39-16.jpg' /><br/><p>&quot;Mọi việc Ðức Chúa làm đều hoàn toàn tốt đẹp,<br/> mỗi mệnh lệnh Người ban sẽ được thi hành đúng thời đúng lúc.<br/> Không có lý do gì để hỏi: &quot;Chuyện gì thế? &quot; và &quot;Sao lại xảy ra?&quot; <br/>Vì đến thời đến buổi mọi chuyện sẽ có lời giải đáp&quot; (Hc 39,16).</p>"
+
+rdm[253] = "<img src='https://lh3.googleusercontent.com/-WEAw8oP117U/VfLkHT8_-6I/AAAAAAAAGCs/zq-HPM9hDJ4/s640-Ic42/Lc-16-10.jpg' /><br/><p>&quot;Ai trung tín trong việc rất nhỏ, thì cũng trung tín trong việc lớn; ai bất lương trong việc rất nhỏ, thì cũng bất lương trong việc lớn&quot; (Lc 16,10).</p>"
+
+rdm[254] = "<img src='https://lh3.googleusercontent.com/-Ip7n_4uTwFs/VfLkHgIUg3I/AAAAAAAAGC0/aitRBCGT3XM/s640-Ic42/Lc-16-13.jpg' /><br/><p>&quot;Không gia nhân nào có thể làm tôi hai chủ, vì hoặc sẽ ghét chủ này mà yêu chủ kia, hoặc sẽ gắn bó với chủ này mà khinh dể chủ nọ. Anh em không thể vừa làm tôi Thiên Chúa, vừa làm tôi Tiền Của được&quot; (Lc 16,13).</p>"
+
+rdm[255] = "<img src='https://lh3.googleusercontent.com/-86hy19OiCU8/VfLkHmsvKzI/AAAAAAAAGC4/ypZNzFAofss/s640-Ic42/Lc-12-32.jpg' /><br/><p>&quot;Hỡi đoàn chiên nhỏ bé, đừng sợ, vì Cha anh em đã vui lòng ban Nước của Người cho anh em&quot; (Lc 12,32).</p>"
+
+rdm[256] = "<img src='https://lh3.googleusercontent.com/-G2hOnoqH5RQ/VfWVO2FfjqI/AAAAAAAAHjk/QXnGWuCCQBw/s640-Ic42/Ga-3-16-V2.jpg' /><br/><p>&quot;Thiên Chúa yêu thế gian đến nỗi đã ban Con Một, để ai tin vào Con của Người thì khỏi phải chết, nhưng được sống muôn đời&quot; (Ga 3,16).</p>"
+
+rdm[257] = "<img src='https://lh3.googleusercontent.com/-cwGi9NY8bz8/VfWVO1dam-I/AAAAAAAAHjQ/OmGHdp2DQjA/s640-Ic42/Ga-3-16.jpg' /><br/><p>&quot;Thiên Chúa yêu thế gian đến nỗi đã ban Con Một, để ai tin vào Con của Người thì khỏi phải chết, nhưng được sống muôn đời&quot; (Ga 3,16).</p>"
+
+rdm[258] = "<img src='https://lh3.googleusercontent.com/-cKtKfSd3pxk/VfWVOypmK6I/AAAAAAAAHlM/KdHE5XG9AmQ/s640-Ic42/Ga-3-17-v2.jpg' /><br/><p>&quot;Thiên Chúa sai Con của Người đến thế gian, không phải để lên án thế gian, nhưng là để thế gian, nhờ Con của Người, mà được cứu độ&quot; (Ga 3,17).</p>"
+
+rdm[259] = "<img src='https://lh3.googleusercontent.com/-IOQ1FO5sMhU/VfWVUCRsVRI/AAAAAAAAHj8/hv5etW4D9ns/s640-Ic42/Ga-3-17-v3.jpg' /><br/><p>&quot;Thiên Chúa sai Con của Người đến thế gian, không phải để lên án thế gian, nhưng là để thế gian, nhờ Con của Người, mà được cứu độ&quot; (Ga 3,17).</p>"
+
+rdm[260] = "<img src='https://lh3.googleusercontent.com/-M4L64akLhmI/Vf5XAvJw6sI/AAAAAAAAHpA/VxN8QV3PbT8/s520-Ic42/Mc-6-50-gif.gif' /><br/><p>&quot;Cứ yên tâm, chính Thầy đây, đừng sợ !&quot; (Mc 6,50)</p>"
+
+rdm[261] = "<img src='https://lh3.googleusercontent.com/-uUoqgb8RZkk/Vf5XJDoJpkI/AAAAAAAAHpI/72e9euuSkkk/s640-Ic42/Mc-6-50.jpg' /><br/><p>&quot;Cứ yên tâm, chính Thầy đây, đừng sợ !&quot; (Mc 6,50)</p>"
+
+rdm[262] = "<img src='https://lh3.googleusercontent.com/-fpxUDYiL7t8/Vf5afeWYlcI/AAAAAAAAHqQ/ToC4OMurMSg/s520-Ic42/Dung-So-NgonLuaNho.net.gif' /><br/><p>&quot;Cứ yên tâm, chính Thầy đây, đừng sợ !&quot; (Mc 6,50)</p>"
+
+rdm[263] = "<img src='https://lh3.googleusercontent.com/-iWvICFnkbVg/Vf5XLRuCH8I/AAAAAAAAHpU/ueD9zAs_NgE/s640-Ic42/Mc-9-35b-v2.jpg' /><br/><p>&quot;Ai muốn làm người đứng đầu, thì phải làm người rốt hết, và làm người phục vụ mọi người&quot;(Mc 9,35b).</p>"
+
+rdm[264] = "<img src='https://lh3.googleusercontent.com/-5EaHa0lSnT0/VfOgXjwCO9I/AAAAAAAAGng/09_vE_GSbNE/s640-Ic42/Lc-6-46-v2.jpg' /><br/><p>&quot;Tại sao anh em gọi Thầy: &quot;Lạy Chúa! Lạy Chúa&quot;, mà anh em không làm điều Thầy dạy?&quot; (Lc 6,46).</p>"
+
+rdm[265] = "<img src='https://lh3.googleusercontent.com/-DdouO_vcUnM/VfOggHiNezI/AAAAAAAAGns/vEnaDQ2TRHA/s640-Ic42/Lc-6-46-png.jpg' /><br/><p>&quot;Tại sao anh em gọi Thầy: &quot;Lạy Chúa! Lạy Chúa&quot;, mà anh em không làm điều Thầy dạy?&quot; (Lc 6,46).</p>"
+
+rdm[266] = "<img src='https://lh3.googleusercontent.com/-l3HVnweRza0/VctrA9XGCYI/AAAAAAAAFwk/GTgk4WlOV9E/s500-Ic42/anigif-2.gif' /><br/><p>&quot;Vì Ðức Chúa là Ðấng nhân từ và hay thương xót: <br/>Người thứ tha tội lỗi và cứu vớt trong lúc gian truân&quot; (Hc 2,11).</p>"
+
+rdm[267] = "<img src='https://lh3.googleusercontent.com/-N-_RHfy7T5U/VdQ7u9D3QiI/AAAAAAAAFxg/nrN1KNBIgTA/s640-Ic42/1Cor10-13a.jpg' /><br/><p>&quot;Không một thử thách nào đã xảy ra cho anh em mà lại vượt quá sức loài người. Thiên Chúa là Đấng trung tín: Người sẽ không để anh em bị thử thách quá sức&quot; (1Cor 10,13a).</p>"
+
+rdm[268] = "<img src='https://lh3.googleusercontent.com/-Cs_Em9VoROA/VdQ8FBxxGEI/AAAAAAAAF0M/MM64n8Z_zrc/s640-Ic42/2Cor-1-4.jpg' /><br/><p>&quot;Người luôn nâng đỡ ủi an chúng ta trong mọi cơn gian nan thử thách, để sau khi đã được Thiên Chúa nâng đỡ, chính chúng ta cũng biết an ủi những ai lâm cảnh gian nan khốn khó&quot; (2Cor 1,4).</p>"
+
+rdm[269] = "<img src='https://lh3.googleusercontent.com/-Lpgv0eEJvaY/VdQ7vf9Q_7I/AAAAAAAAFxk/H4uSTORBELw/s640-Ic42/2Mcb%2525206-16.jpg' /><br/><p>&quot;Người chẳng bao giờ rút lại lòng thương xót dành cho chúng ta; Người có dùng tai hoạ để giáo dục dân Người, thì cuối cùng Người vẫn không bỏ rơi&quot; (2Mcb 6,16).</p>"
+
+rdm[270] = "<img src='https://lh3.googleusercontent.com/-MzflW_r6QLE/VdQ7wXz-NfI/AAAAAAAAFxw/iASrdap5p4w/s640-Ic42/2Sb%25252030-9B-2.jpg' /><br/><p>&quot;Thiên Chúa là Đấng từ bi nhân hậu, Người sẽ không ngoảnh  mặt làm ngơ, nếu anh em trờ lại vời người&quot; (2Sb 30,9b).</p>"
+
+rdm[271] = "<img src='https://lh3.googleusercontent.com/-tZC0MH2wAlU/VdQ7w_ssQVI/AAAAAAAAFx0/oA2Hcd4azkY/s640-Ic42/2Sb%25252030-9B.jpg' /><br/><p>&quot;Thiên Chúa là Đấng từ bi nhân hậu, Người sẽ không ngoảnh  mặt làm ngơ, nếu anh em trờ lại vời người&quot; (2Sb 30,9b).</p>"
+
+rdm[272] = "<img src='https://lh3.googleusercontent.com/-lZ5MIg9Y2ts/VdQ7yV7HOHI/AAAAAAAAFyA/4BVxv4YOJgo/s640-Ic42/Cl-3-13-v2.jpg' /><br/><p>&quot;Hãy chịu đựng và tha thứ cho nhau, nếu trong anh em người này có điều gì phải trách móc người kia. Chúa đã tha thứ cho anh em, thì anh em cũng vậy, anh em phải tha thứ cho nhau&quot; (Cl 3,13).</p>"
+
+rdm[273] = "<img src='https://lh3.googleusercontent.com/-1C8rLLdcjLo/VdQ7y6TQSiI/AAAAAAAAFyE/sAPSX2q3dJI/s640-Ic42/Cl-3-13.jpg' /><br/><p>&quot;Hãy chịu đựng và tha thứ cho nhau, nếu trong anh em người này có điều gì phải trách móc người kia. Chúa đã tha thứ cho anh em, thì anh em cũng vậy, anh em phải tha thứ cho nhau&quot; (Cl 3,13).</p>"
+
+rdm[274] = "<img src='https://lh3.googleusercontent.com/-5m1Ck3LGeGk/VdQ70wBi3TI/AAAAAAAAFyQ/zNQQl2solD8/s640-Ic42/Cn-15-8-9.jpg' /><br/><p>&quot;ĐỨC CHÚA ghê tởm hy lễ của đứa ác,<br/>nhưng ưa thích lời cầu của kẻ ngay.<br/>ĐỨC CHÚA ghê tởm lối sống của ác nhân, <br/>nhưng mến thương người theo đuổi sự công chính&#8221; <br/> &quot;(Cn 15,8-9).</p>"
+
+rdm[275] = "<img src='https://lh3.googleusercontent.com/-AVDkCkvPwFk/VdQ71EPBoUI/AAAAAAAAFyU/fpFq1LaPQaA/s912-Ic42/Dt-10-24.jpg' /><br/><p>&quot;Chúng ta hãy để ý đến nhau, làm sao cho người này thúc đẩy người kia sống yêu thương và làm những việc tốt&quot; (Dt 10,24).</p>"
+
+rdm[276] = "<img src='https://lh3.googleusercontent.com/-EdnYiAzaepM/VdQ72pmapwI/AAAAAAAAFyc/XpNo1KcHj9Q/s640-Ic42/Ga%2525206%25252056.jpg' /><br/><p>&quot;Ai ăn thịt và uống máu tôi, thì ở lại trong tôi, và tôi ở lại trong người ấy&quot; (Ga 6,56).</p>"
+
+rdm[277] = "<img src='https://lh3.googleusercontent.com/-snACHolxxo8/VdQ731ca0mI/AAAAAAAAFyk/mHJshMXajl4/s640-Ic42/Hc-29-8.jpg' /><br/><p>&quot;Hãy rộng lượng với kẻ nghèo hèn,<br/>đừng chần chừ khi phải bố thí<br/>&quot;(Hc 29,8).</p>"
+
+rdm[278] = "<img src='https://lh3.googleusercontent.com/-QFaFOSdRusk/VdQ746SetEI/AAAAAAAAFys/ki2keWIXqt8/s640-Ic42/Hc-5-4.jpg' /><br/><p>&quot;Đừng nói: <p>&quot;Tôi đã phạm tội nhưng nào có sao?<p>&quot; <br/>Bởi vì  Đức Chúa  nhẫn nại đó! &quot;(Hc 5,4) </p>"
+
+rdm[279] = "<img src='https://lh3.googleusercontent.com/-Lpgv0eEJvaY/VdQ7vf9Q_7I/AAAAAAAAFxk/H4uSTORBELw/s640-Ic42/2Mcb%2525206-16.jpg' /><br/><p>&quot;Người chẳng bao giờ rút lại lòng thương xót dành cho chúng ta; Người có dùng tai hoạ để giáo dục dân Người, thì cuối cùng Người vẫn không bỏ rơi&quot; (2Mcb 6,16).</p>"
+
+rdm[280] = "<img src='https://lh3.googleusercontent.com/-3x4vdkG3_lY/Vf-hNTaiv0I/AAAAAAAAHvQ/FqXmywKqXS4/s640-Ic42/Tv-34-20.jpg' /><br/><p>&quot;Người công chính gặp nhiều nỗi gian truân, <br/>nhưng CHÚA giúp họ luôn thoát khỏi<br/>&quot;(Tv 34,20).</p>"
+
+rdm[281] = "<img src='https://lh3.googleusercontent.com/-ZFl7czCVK5E/Vf-jBDveDNI/AAAAAAAAHv0/Ndgn1-GOuxc/s640-Ic42/Tv-34-9.jpg' /><br/><p>&quot;Hãy nghiệm xem CHÚA tốt lành biết mấy: <br/>hạnh phúc thay kẻ ẩn náu bên Người!<br/>&quot; (Tv 34,9)</p>"
+
+rdm[282] = "<img src='https://lh3.googleusercontent.com/-YcM9WVPpjww/Vf-jRxkx_QI/AAAAAAAAHwE/rmTJ8hB6eME/s640-Ic42/Tv-34-9-v2.jpg' /><br/><p>&quot;Hãy nghiệm xem CHÚA tốt lành biết mấy: <br/>hạnh phúc thay kẻ ẩn náu bên Người!<br/>&quot; (Tv 34,9)</p>"
+
+rdm[283] = "<img src='https://lh3.googleusercontent.com/-81CNXKiwOLw/VgD95ACK0uI/AAAAAAAAHys/OZKsl7CR7ng/s640-Ic42/11892317_1124226737607038_3159511810503445638_o.jpg' /><br/><p>&quot;Thầy nói cho anh em biết: phàm ai tuyên bố nhận Thầy trước mặt thiên hạ, thì Con Người cũng sẽ tuyên bố nhận người ấy trước mặt các thiên thần của Thiên Chúa. Còn ai chối Thầy trước mặt thiên hạ, thì sẽ bị chối trước mặt các thiên thần của Thiên Chúa&quot; (Lc 12,8-9).</p>"
+
+rdm[284] = "<img src='https://lh3.googleusercontent.com/-W97gtcEYRuE/VgD-KNyzhmI/AAAAAAAAHy8/UJ_bERvX5mE/s640-Ic42/11705532_1123680684328310_2719421738185758958_o.jpg' /><br/><p>&quot;Anh em đừng lo lắng gì cả. Nhưng trong mọi hoàn cảnh, anh em cứ đem lời cầu khẩn, van xin và tạ ơn, mà giãi bày trước mặt Thiên Chúa những điều anh em thỉnh nguyện. Và bình an của Thiên Chúa, bình an vượt lên trên mọi hiểu biết, sẽ giữ cho lòng trí anh em được kết hợp với Đức Giê-su Ki-tô&quot; (Pl 4,6-7).</p>"
+
+rdm[285] = "<img src='https://lh3.googleusercontent.com/-h6_I3r-Wy-U/VgD-ZwsYK6I/AAAAAAAAHzU/E6bA0LsauWo/s640-Ic42/11905407_1122330917796620_8476939003260553793_o.jpg' /><br/><p>&quot;Anh em hãy cầu nguyện kẻo sa chước cám dỗ&quot; (Lc 22,40).</p>"
+
+rdm[286] = "<img src='https://lh3.googleusercontent.com/-2RBclOsjsqA/VgD-kSbnaWI/AAAAAAAAHzk/8x9LT15upzc/s640-Ic42/11914250_1121728084523570_232367149048794671_o%252520%2525281%252529.jpg' /><br/><p>&quot;Chúa hạ bệ những ai quyền thế, Người nâng cao mọi kẻ khiêm nhường&quot; (Lc 1,52).</p>"
+
+rdm[287] = "<img src='https://lh3.googleusercontent.com/-WpcIkqIa_W0/VgD-4-_f2UI/AAAAAAAAHz8/lKfIgF5XA3I/s640-Ic42/11886190_1120958321267213_4767757517326075388_o%252520%2525281%252529.jpg' /><br/><p>&quot;Thầy ban cho anh em bình an của Thầy. Thầy ban cho anh em không như thế gian ban tặng. Lòng anh em đừng xao xuyến cũng đừng sợ hãi&quot; (Ga 14,27).</p>"
+
+rdm[288] = "<img src='https://lh3.googleusercontent.com/-bZF3paNbpEQ/VgD_FKGk1pI/AAAAAAAAH0M/IPmpwAe12sc/s640-Ic42/11903855_1120335557996156_4281980858185536739_n%252520%2525281%252529.jpg' /><br/><p>&quot;Ai yêu mến Thầy, thì sẽ giữ lời Thầy. Cha Thầy sẽ yêu mến người ấy. Cha Thầy và Thầy sẽ đến và ở lại với người ấy&quot; (Ga 14,23).</p>"
+
+rdm[289] = "<img src='https://lh3.googleusercontent.com/-7Epd9t29n2w/VgD_QC1ne1I/AAAAAAAAH0c/Pxs6xSiWzcM/s640-Ic42/11896400_1119821258047586_3215779447940316595_o%252520%2525281%252529.jpg' /><br/><p>&quot;Trước mắt Ta, ngươi thật quý giá, vốn được Ta trân trọng và mến thương&quot; (Is 43,4a).</p>"
+
+rdm[290] = "<img src='https://lh3.googleusercontent.com/-MTjmgbrl-VY/VgD_kyqhZaI/AAAAAAAAH00/Yp8Phxq7hHQ/s640-Ic42/11112833_1119246001438445_3087615621782502838_o%252520%2525281%252529.jpg' /><br/><p>&quot;Ơn của Thầy đã đủ cho con, vì sức mạnh của Thầy được biểu lộ trọn vẹn trong sự yếu đuối&quot; &#8211; (2Cr 12,9).</p>"
+
+rdm[291] = "<img src='https://lh3.googleusercontent.com/-IxMPCbtW5HU/VgD_-m7lctI/AAAAAAAAH1I/ioiA4zlhlRY/s640-Ic42/11894661_1118674624828916_7732716858959830448_o.jpg' /><br/><p>&quot;Anh em đừng xao xuyến! Hãy tin vào Thiên Chúa và tin vào Thầy&quot; (Ga 14,1).</p>"
+
+rdm[292] = "<img src='https://lh3.googleusercontent.com/-Op1fGzc8vZ4/VgEAYAf6HDI/AAAAAAAAH1Y/evmVMdbt-NM/s640-Ic42/11884022_1118029784893400_2850818448995928235_o.jpg' /><br/><p>&quot;Không một thử thách nào đã xảy ra cho anh em mà lại vượt quá sức loài người; nhưng khi để anh em bị thử thách, Người sẽ cho kết thúc tốt đẹp&quot; (1Cor 10,13).</p>"
+
+rdm[293] = "<img src='https://lh3.googleusercontent.com/-FDryjMPIJ-I/VgEAzk5rNjI/AAAAAAAAH1o/ll0O2ScJI64/s640-Ic42/11953372_1117793651583680_1147075720376263183_o.jpg' /><br/><p>&quot;Hãy chúc lành cho kẻ nguyền rủa anh em và cầu nguyện cho kẻ vu khống anh em&quot; (Lc 6,28).</p>"
+
+rdm[294] = "<img src='https://lh3.googleusercontent.com/-fUuzbDauFKY/VgO3DpJQNFI/AAAAAAAAH2c/dYTWvgC8B8A/s640-Ic42/11930986_1117515014944877_378151453152433082_o.jpg' /><br/><p>&quot;Ai cho một trong những kẻ bé nhỏ này uống, dù chỉ là một chén nước lã mà thôi, vì kẻ ấy là môn đệ của Thầy, thì Thầy bảo thật anh em, người đó sẽ không mất phần thưởng đâu&quot; (Mt 10,42).</p>"
+
+rdm[295] = "<img src='https://lh3.googleusercontent.com/-SgKcEzcEMy4/VgO3VrY5kvI/AAAAAAAAH2s/W99LIqo4VLA/s640-Ic42/11894014_1117010951661950_1511336992403708155_o.jpg' /><br/><p>&quot;Trong mọi hoàn cảnh và mọi sự, hãy nhân danh Đức Giê-su Ki-tô, Chúa chúng ta, mà cảm tạThiên Chúa là Cha&quot; (Ep 5,20).</p>"
+
+rdm[296] = "<img src='https://lh3.googleusercontent.com/-7rTls1SeBzg/VgO3iN_S2HI/AAAAAAAAH28/bmr6eltIszs/s640-Ic42/11953390_1116762861686759_4716944584839087417_o.jpg' /><br/><p>&quot;Thưa Thầy, bỏ Thầy thì chúng con biết đến với ai? Thầy mới có những lời đem lại sự sống đời đời&quot; (Ga 6,68).</p>"
+
+rdm[297] = "<img src='https://lh3.googleusercontent.com/-Da1l1uaxrF8/VgO3wXSwzeI/AAAAAAAAH3M/o2JGPFxhmM8/s640-Ic42/11896443_1116499881713057_3999380881337346052_o.jpg' /><br/><p>&quot;Cỏ héo, hoa tàn, Nhưng lời của Thiên Chúa chúng ta đời đời bền vững&quot; (Is 40,8).</p>"
+
+rdm[298] = "<img src='https://lh3.googleusercontent.com/-hc_04X2kVV0/VgO3_GIVw2I/AAAAAAAAH3c/TUTm2wq6gSA/s912-Ic42/11915410_1114991075197271_5324567016850760772_o.jpg' /><br/><p>&quot;Chúng ta hãy để ý đến nhau, làm sao cho người này thúc đẩy người kia sống yêu thương và làm những việc tốt&quot; (Dt 10,24).</p>"
+
+rdm[299] = "<img src='https://lh3.googleusercontent.com/-OjwePOByFMw/VgO4Xp-PsII/AAAAAAAAH3s/yHdz71Qiu3E/s1600-Ic42/11879146_1114780465218332_4522614364828166268_o.jpg' /><br/><p>&quot;Đừng nói: &quot;Tôi đã phạm tội nhưng nào có sao?&quot; Bởi vì Đức Chúa nhẫn nại đó!&quot; (Hc 5,4)</p>"
+
+rdm[300] = "<img src='https://lh3.googleusercontent.com/-GmQBwoYfgDY/VgO4s2JALTI/AAAAAAAAH38/jaIUkiZD7hw/s640-Ic42/11248696_1114552221907823_8148458393549138506_o.jpg' /><br/><p>&quot;Nếu anh em vốn là những kẻ xấu mà còn biết cho con cái mình của tốt của lành, phương chi Cha trên trời lại không ban Thánh Thần cho những kẻ kêu xin Người sao?&quot;  (Lc 11,13)</p>"
+
+rdm[301] = "<img src='https://lh3.googleusercontent.com/-PAXtet3YgfA/VgO5JHS1BlI/AAAAAAAAH4M/5ZpxA1xiIXg/s640-Ic42/11884644_1114021738627538_1508160000171610583_o.jpg' /><br/><p>&quot;Không một thử thách nào đã xảy ra cho anh em mà lại vượt quá sức loài người. Thiên Chúa là Đấng trung tín: Người sẽ không để anh em bị thử thách quá sức&quot; (1Cor 10,13a).</p>"
+
+rdm[302] = "<img src='https://lh3.googleusercontent.com/-8ljdwSOC2Gs/VgO5nWJlvrI/AAAAAAAAH4s/FWOUGm-LAo0/s1600-Ic42/11886141_1114253381937707_6205932354913979115_o.jpg' /><br/><p>&quot;Trước hết hãy tìm kiếm Nước Thiên Chúa và đức công chính của Người, còn tất cả những thứ kia, Người sẽ thêm cho&quot; (Mt 6,33).</p>"
+
+rdm[303] = "<img src='https://lh3.googleusercontent.com/-h4dAd_Iwh4k/Vg949XxWJ8I/AAAAAAAAH5s/th73z7Hjmqk/s1600-Ic42/1-Tx-5-21-22.jpg' /><br/><p>&quot;Hãy cân nhắc mọi sự: điều gì tốt thì giữ; còn điều xấu dưới bất cứ hình thức nào thì lánh cho xa&quot; (1Tx 5,21-22 ).</p>"
+
+rdm[304] = "<img src='https://lh3.googleusercontent.com/-9-V1hLZQ-n8/Vg949oVK3qI/AAAAAAAAH5o/cLGcWU89ll4/s640-Ic42/Tv-119-105.jpg' /><br/><p>&quot;Lời Chúa là ngọn đèn soi cho con bước, <br/> là ánh sáng chỉ đường con đi&quot; (Tv 119,105).</p>"
+rdm[305] = "<img src='https://lh3.googleusercontent.com/-LsJNxYsg-qA/Vx4WxOvSwEI/AAAAAAAAKpU/V73kv9FZ1EwAKnKCelvVPXXgEEVdSuAVACCo/s640/Dt-10-24-www.NgonLuaNho.net.jpg' /><br/><p>&quot;Chúng ta hãy để ý đến nhau, làm sao cho người này thúc đẩy người kia sống yêu thương và làm những việc tốt&quot; (Dt 10,24).</p>"
+
+rdm[306] = "<img src='https://lh3.googleusercontent.com/-uERmpGI8Xzk/VxM42peSbvI/AAAAAAAAKcc/5-bmcMkiayc9U72oqbqngulbogV-nD7QwCCo/s640/11112833_1119246001438445_3087615621782502838_o%2B%25281%2529.jpg' />"
+
+rdm[307] = "<img src='https://lh3.googleusercontent.com/-7iOn1bygQOA/VxM423_5hqI/AAAAAAAAKcc/4LQAHQM0Pc05rNPJLdVsqnPDQM1HqGJHACCo/s640/11879146_1114780465218332_4522614364828166268_o.jpg' />"
+
+rdm[308] = "<img src='https://lh3.googleusercontent.com/-NllOtwgfkvw/VxM43lvxYzI/AAAAAAAAKcc/e5YSRWvcqIoqPbJB6IhRz98VC1CqwD9dQCCo/s640/11884022_1118029784893400_2850818448995928235_o.jpg' />"
+
+rdm[309] = "<img src='https://lh3.googleusercontent.com/-rr1d07EgRpw/VxM46zaTMgI/AAAAAAAAKcc/xp9i3FXG4cw8DVchmkaYZDRtyX-Xc3DBwCCo/s640/11903855_1120335557996156_4281980858185536739_n%2B%25281%2529.jpg' />"
+
+rdm[310] = "<img src='https://lh3.googleusercontent.com/-Fv09iq2_icg/VxM5BWgreDI/AAAAAAAAKdg/siTbghU2ycgQFk1EOhByOaU2vESekZENQCCo/s640/1Ga-1-9-V2.jpg' />"
+
+rdm[311] = "<img src='https://lh3.googleusercontent.com/-dkawWlADbV4/VxM5H71-RxI/AAAAAAAAKdg/2PXLoPphqlIO3thy0HpuFotE4qKzFf7ygCCo/s640/1Ga-3-17-V2.png' />"
+
+rdm[312] = "<img src='https://lh3.googleusercontent.com/-3NFJvNX0vyg/VxM5J84fgXI/AAAAAAAAKdg/6ZZLUXYefPMpKWBOaBpmzeJ2apPCNkNIQCCo/s640/1Ga-3-18.png' />"
+
+rdm[313] = "<img src='https://lh3.googleusercontent.com/-p6vca0TP4gU/VxM5MgtSK-I/AAAAAAAAKdg/_-YnF0sJFOAxt_NQmDaQTKkVvjd3qOxHQCCo/s640/2-Cr-9-15.png' />"
+
+rdm[314] = "<img src='https://lh3.googleusercontent.com/-s8iKnJwtRb0/VxM5Nhm-1BI/AAAAAAAAKdg/NOmYvd4RQws_ZPLTiE-EANQGKgl4PS3_gCCo/s500/2Cor%2B12%2B9-85.jpg' />"
+
+rdm[315] = "<img src='https://lh3.googleusercontent.com/-9XRi0j2J9kg/VxM5RIt8f4I/AAAAAAAAKdg/1AndvYb8OXAgy-WbBzZp8ii1cdsvV59RACCo/s640/2Cor-12-9-chuMauXanh-jpg.jpg' />"
+
+rdm[316] = "<img src='https://lh3.googleusercontent.com/-APbgyqMNlYM/VxM5WaBl1mI/AAAAAAAAKek/VY5a3-g-r3sA6njIa8lfWgq-Q-lpXbqhwCCo/s640/2Cor-12-9.jpg' />"
+
+rdm[317] = "<img src='https://lh3.googleusercontent.com/-LblrXI7tpDU/VxM5kaqGw-I/AAAAAAAAKek/HNa2-AfHWrQWUGpORyn2qQnvh6t0KPb-QCCo/s640/2Cr-12-9-PNG.png' />"
+
+rdm[318] = "<img src='https://lh3.googleusercontent.com/-FsqaP_lnP14/VxM5kgtJx4I/AAAAAAAAKfU/krIDYuQYvMoelW4AexMlrCbs0TPJFlg3wCCo/s640/2Cr-12-9-V2.jpg' />"
+
+rdm[319] = "<img src='https://lh3.googleusercontent.com/--_a7MkjjKfU/VxM5ngdi9AI/AAAAAAAAKfU/85dU-zyrJRc9GavZ8XQtE2wzsxk65F8pQCCo/s640/2Cr-12-9.jpg' />"
+
+rdm[320] = "<img src='https://lh3.googleusercontent.com/-foQKzaXpCxY/VxM5nn0cA1I/AAAAAAAAKfU/LHhixCaRQII5TM3T7XKaSk4kaXplpz2JgCCo/s500/2Pr%2B3%2B9b.jpg' />"
+
+rdm[321] = "<img src='https://lh3.googleusercontent.com/-SqzCUgQyihE/VxM5oXY4L0I/AAAAAAAAKfU/ySh1Rpm3epMff308us-XgZClrEJT6UEFACCo/s640/2Sb-30-9b.jpg' />"
+
+rdm[322] = "<img src='https://lh3.googleusercontent.com/-nhwCh8LSPfw/VxM5pzkVegI/AAAAAAAAKfU/m0IS7Wnx6eU_a9tIwXU2lVBTmqYfeY6eACCo/s640/Cl%2B3%2B13-1200px.jpg' />"
+
+rdm[323] = "<img src='https://lh3.googleusercontent.com/-whEUdEjB3Ac/VxM5sBHR_8I/AAAAAAAAKfU/W0HEE-QJvJMatYUkIMCm23jMm6iIWJC7QCCo/s640/Cl-3-13-V2.png' />"
+
+rdm[324] = "<img src='https://lh3.googleusercontent.com/-Ny6IUE1UJkA/VxM5tfQUTWI/AAAAAAAAKfU/jkGiaYydO5sULDr_qwUCVjx1uu6Am5hvACCo/s640/Cl-3-13.jpg' />"
+
+rdm[325] = "<img src='https://lh3.googleusercontent.com/-EUL6tHb00qI/VxM5wLHb4fI/AAAAAAAAKfU/NlavvgCT2_Yqidoohhu-JMC6pFNth5ABwCCo/s640/Cn-19-17-v2-1200px.png' />"
+
+rdm[326] = "<img src='https://lh3.googleusercontent.com/-GgO6YXV0yUA/VxM5yOLYUcI/AAAAAAAAKfU/rz-yD8Qk-okKpQBx7So7BrDL5wFUZmcBgCCo/s640/Dt%2B10-24.png' />"
+
+rdm[327] = "<img src='https://lh3.googleusercontent.com/-yeDUSd65rKE/VxM5zespR0I/AAAAAAAAKfU/mccJb--h7MIqOnUvwk3_z-wuVDyZddv8gCCo/s800/Dt-10-24.jpg' />"
+
+rdm[328] = "<img src='https://lh3.googleusercontent.com/-aMbc17G8_bw/VxM52NncLyI/AAAAAAAAKfw/srByZR5_c08zLQ-sXfNRvMwtSMy_VFoXgCCo/s640/Ga-3-17-v2.jpg' />"
+
+rdm[329] = "<img src='https://lh3.googleusercontent.com/-0dYJQnfe7QQ/VxM52mXv9NI/AAAAAAAAKfw/dCsp9-sPakUT39_DV2mLYmn0_dtguNfDwCCo/s640/Gc-1-3-V2.jpg' />"
+
+rdm[330] = "<img src='https://lh3.googleusercontent.com/-TDcKuFufark/VxM53t2gRgI/AAAAAAAAKfw/dR8gYRnxkBsfwEGZ-fIVIzYtkAKHLGTIACCo/s640/Gc-1-3-V3.jpg' />"
+
+rdm[331] = "<img src='https://lh3.googleusercontent.com/-XyzRRfWZEKA/VxM5-VUACqI/AAAAAAAAKfw/UutzSrzuh3cADBqyvgr0EyC9Y0ssAqZigCCo/s640/Gc-1-3.jpg' />"
+
+rdm[332] = "<img src='https://lh3.googleusercontent.com/-zt8GItrVfzg/VxM58LHqMYI/AAAAAAAAKfw/P1nlhPq1YQQw5C0y20Y_gKuxaUOdc-sYACCo/s640/Gc-5-15-chu-mau-xanh-la-cay.jpg' />"
+
+rdm[333] = "<img src='https://lh3.googleusercontent.com/-OSlLZLLl9YU/VxM5-P6YP1I/AAAAAAAAKfw/9iPRtJLOnTcwix0rMxR_7Vf2ed70o_khgCCo/s640/Gc-5-15-chu-mau-xanh.jpg' />"
+
+rdm[334] = "<img src='https://lh3.googleusercontent.com/-9fJF9XX8lhE/VxM5_qGMg1I/AAAAAAAAKfw/NcALM1NkedsD5u7PERGY4osbn9_xmketgCCo/s640/Gc-5-15.jpg' />"
+
+rdm[335] = "<img src='https://lh3.googleusercontent.com/-V69XvRK2JiY/VxM6DIgo6nI/AAAAAAAAKeg/w8ovBFKXTYMepj0enfqLDFynSkzRsh1qQCCo/s640/Hc-29-8.png' />"
+
+rdm[336] = "<img src='https://lh3.googleusercontent.com/-burgM-FGAas/VxM6D-HggzI/AAAAAAAAKfw/E43AoFZLcpkR2JScmFE3-M1BLYjd76SFwCCo/s640/Is-1-17.png' />"
+
+rdm[337] = "<img src='https://lh3.googleusercontent.com/-u_ZIcy81X0A/VxM6GAkDc_I/AAAAAAAAKgg/EMRLya7LNhsf1ZQXguyM0pnt9_Zkhpn2ACCo/s640/Kn-11-23-v3.jpg' />"
+
+rdm[338] = "<img src='https://lh3.googleusercontent.com/-3wl6YYCCa4o/VxM6IajoBbI/AAAAAAAAKgg/OG6zvIQXESQ3sbrAHLvdPPC-ci8snjiJwCCo/s640/Lc-11-13-chuMauXanh.jpg' />"
+
+rdm[339] = "<img src='https://lh3.googleusercontent.com/-Z05F3jT5IOk/VxM6J9ITZ5I/AAAAAAAAKgg/CZsEx9zeH2cyXVrn5jYwUGMV9XzMCMoAQCCo/s640/Lc-11-13.jpg' />"
+
+rdm[340] = "<img src='https://lh3.googleusercontent.com/-_VLNDwfGAdA/VxM6KhSHXHI/AAAAAAAAKgg/gblLFgTGrbs9b0OEim6cYl8AgIJOVX4kgCCo/s640/Lc-11-28.jpg' />"
+
+rdm[341] = "<img src='https://lh3.googleusercontent.com/-HWo7plhkUlg/VxM6r0_gnrI/AAAAAAAAKhQ/H64LIGJ1pmgU-Tk8UwclcIKMh_4Y1rCQACCo/s640/Lc-5-32-PNG-1.png' />"
+
+rdm[342] = "<img src='https://lh3.googleusercontent.com/-96Z8_US6Ppc/VxM6OLzemyI/AAAAAAAAKgg/S5MFG2FBXHAIdcgJbmvsBnhuZV0_5xyDgCCo/s640/Lc-5-32-PNG.jpg' />"
+
+rdm[343] = "<img src='https://lh3.googleusercontent.com/-5fFdsGxXdbo/VxM6QgdadhI/AAAAAAAAKgg/kBE9dE-4Rwo-ioP_yPAM1wBFoiBe1z_yACCo/s640/Lc-5-32-chuMauXanh.jpg' />"
+
+rdm[344] = "<img src='https://lh3.googleusercontent.com/-Fv6cn99X1Fw/VxM6T15B9jI/AAAAAAAAKfM/tkJditkkN5YWzLPTz-EIbdHXVzyWqsuGwCCo/s640/Lc-5-32.jpeg' />"
+
+rdm[345] = "<img src='https://lh3.googleusercontent.com/-9XaGkff4D7E/VxM6XD-Rf8I/AAAAAAAAKhA/bZRa5LH08JAkkUWRvWaiYxGwezpFEC85QCCo/s640/Lc-6-28-v2.jpg' />"
+
+rdm[346] = "<img src='https://lh3.googleusercontent.com/-ry_O-lZ8kj8/VxM6Y0PebvI/AAAAAAAAKhA/KgsXwq6_7BUtjzUWDP7MbOYIswyqUuQ3ACCo/s640/Lc-6-28.jpg' />"
+
+rdm[347] = "<img src='https://lh3.googleusercontent.com/-akyHZJzRmTI/VxM6cfKq6QI/AAAAAAAAKhA/xWbxkymF1WQ6FK2Gh9Nit3eReurDtoKoQCCo/s640/Lc-6-37.jpg' />"
+
+rdm[348] = "<img src='https://lh3.googleusercontent.com/-56SQKW90gIo/VxM6dqmGoFI/AAAAAAAAKhA/XCGRL3tUQ-Avnrg9ftbPj9khMyoGJFWIwCCo/s640/Lc-6-38.jpg' />"
+
+rdm[349] = "<img src='https://lh3.googleusercontent.com/-kORvsyphTTM/VxM6i9-WMCI/AAAAAAAAKfs/cjh6WAbwlBgGlkz0HQFlT9wHZgW3zTNvgCCo/s640/Mc-11-25.png' />"
+
+rdm[350] = "<img src='https://lh3.googleusercontent.com/-ta-t1VTOe0w/VxM6i7UjvwI/AAAAAAAAKhQ/fKfIrWi7z_QATS0s1-B8Agqpk8OwsnTDACCo/s500/Mc-8-36.jpg' />"
+
+rdm[351] = "<img src='https://lh3.googleusercontent.com/-QYEQcog8t08/VxM6xzoR5iI/AAAAAAAAKgY/z4P1jNzOtLkPJnCvWzIfU597z7zahe7LgCCo/s640/Mt-5-48.png' />"
+
+rdm[352] = "<img src='https://lh3.googleusercontent.com/-V_lzpFFzRhA/VxM657rKqAI/AAAAAAAAKh4/HWoxcnKp2YI9FKqePE0iulsN-Kkoz0oBQCCo/s640/Mt-5-6-ChuMauXanh-PNG.png' />"
+
+rdm[353] = "<img src='https://lh3.googleusercontent.com/-lMyszrLMyEk/VxM63bQuIcI/AAAAAAAAKhc/RUqfHX1b9VIbkJPud88iyeLaMTfN775ZgCCo/s640/Mt-5-6.jpg' />"
+
+rdm[354] = "<img src='https://lh3.googleusercontent.com/-5e_o4zBcJ-c/VxM66uvPw4I/AAAAAAAAKh4/_sbJ3ycenLcUqF1s2WWxrSkWK0a4RPXBQCCo/s640/Mt-6-14.png' />"
+
+rdm[355] = "<img src='https://lh3.googleusercontent.com/-HPw4ZPrsRXg/VxhqiSqRdfI/AAAAAAAAKoY/lzN2pZEFX2Awa_7ICYVRb7jjDXe7KmNXACCo/s640/1Pr1-5.png' />"
+
+rdm[356] = "<img src='https://lh3.googleusercontent.com/-3QOSqAh5_80/VxM68SPGp5I/AAAAAAAAKh4/I3nZmZ0M2gkQc6rp6IXEifSQgBlIsOi7ACCo/s640/Mt-6-33%25C2%25A0.png' />"
+
+rdm[357] = "<img src='https://lh3.googleusercontent.com/-SkMoNIayfKI/VxM69MT8cKI/AAAAAAAAKh4/JyhqsHaB78ILz70veSNdeqh_Stmu1ED8QCCo/s640/Mt-7-7-8.png' />"
+
+rdm[358] = "<img src='https://lh3.googleusercontent.com/-O8y3p7Zmch0/VxM6_dhpzqI/AAAAAAAAKg8/lQwNdYPzysUb4NmMRfz28IG3ZOJMSigAwCCo/s500/Rm%2B10%2B13.jpg' />"
+
+rdm[359] = "<img src='https://lh3.googleusercontent.com/-Zitk5KrKEnQ/VxM7JG0NNmI/AAAAAAAAKiE/B-So0GlUDLkzHmKz_ONRY-oUMWUdxdQMQCCo/s640/Rm-12-21-1200dpi.png' />"
+
+rdm[360] = "<img src='https://lh3.googleusercontent.com/-7wC8SHmOEnQ/VxM7JQv6bOI/AAAAAAAAKiE/6Eour9cmYYoOT6AGDT3eD3dAobcp4cZPQCCo/s640/Rm-2-4.jpg' />"
+
+rdm[361] = "<img src='https://lh3.googleusercontent.com/-JHDG2uutacI/VxM8F8Zs9cI/AAAAAAAAKis/KCOx9cajeykKmCSzMEx6RfvfpHlrjeb1QCCo/s640/Rm-5-20b-PNG.png' />"
+
+rdm[362] = "<img src='https://lh3.googleusercontent.com/-llfbCKXBiCA/VxM7R2Zb21I/AAAAAAAAKiE/dd7OSm-RcHQXwhWk8fjf7to3ieck6nPUACCo/s640/Rm-5-20b-V2.jpg' />"
+
+rdm[363] = "<img src='https://lh3.googleusercontent.com/-gVAluDms5tA/VxM7aypVmxI/AAAAAAAAKiQ/YNjISoupAqI_AYD1DmB0S_ZPy7nzMeJ-QCCo/s640/Rm-5-20b-V3.jpg' />"
+
+rdm[364] = "<img src='https://lh3.googleusercontent.com/-Kz1c553uSNU/VxM7cNElE1I/AAAAAAAAKiQ/qPHHVlf4e2YpYQdsB_PuAfTV1sZ8ydyZgCCo/s640/Rm-5-20b.jpg' />"
+
+rdm[365] = "<img src='https://lh3.googleusercontent.com/-Hd13XpV50Js/VxM7fjTc5fI/AAAAAAAAKiQ/CZmW6JvfYNoHoimnj2zrOCYjkMFGs-itQCCo/s640/Tv-33-15-1.jpg' />"
+
+rdm[366] = "<img src='https://lh3.googleusercontent.com/-PkszAm6PYi0/VxM7gBqYQMI/AAAAAAAAKiQ/v0Z7O0AP5Y8WhJgVd9L3_0aWiPUPXwbvwCCo/s640/Tv-33-15-V2-1.jpg' />"
+
+rdm[367] = "<img src='https://lh3.googleusercontent.com/-AFHfxYJo-tU/VxM7kGRLphI/AAAAAAAAKh0/fRLYnJuhNZU9BGmvLzFE-4-EOG6sQZcbwCCo/s640/Tv-33-15.jpg' />"
+
+rdm[368] = "<img src='https://lh3.googleusercontent.com/-bYgNnRjF4Lo/VxM78LUZ91I/AAAAAAAAKio/WFfBKQOZJHQ4KV8s1UlttPAxvOzEuYgXgCCo/s640/Tv-65-12.jpg' />"
+
+rdm[369] = "<img src='https://lh3.googleusercontent.com/-FZEb_5IuZ08/VxuL-Q5m5jI/AAAAAAAAKo0/3PNj5JTSkrw2mwfRlzah9nqX6qTana2LQCCo/s520/Ga-13-34-520px.jpg' />"
+
+rdm[370] = "<img src='https://lh3.googleusercontent.com/-JfKztscHZMk/VubH3oBMWRI/AAAAAAAAJpA/fwDmJC9ckeobeTkPcRss82JfPnMXaPK2gCCo/s912/Mc-4-24.png' />"
+
+rdm[371] = "<img src='https://lh3.googleusercontent.com/-pzIz50TTv9k/VubH2pIxeYI/AAAAAAAAJpA/cE3hNQDGpCAtSxOInEKIJ-zS8VJ8CPdxACCo/s640/Mt-10-32-33.png' />"
+
+rdm[372] = "<img src='https://lh3.googleusercontent.com/--gfF0D2q5b8/VubH7gEeHCI/AAAAAAAAJpk/By9ttUuoDcQqe-M5Iwoi9iYSEETdGbwnwCCo/s640/Mt-11-28.png' />"
+
+rdm[373] = "<img src='https://lh3.googleusercontent.com/-OhAVl1UdcSE/VubID8-i_jI/AAAAAAAAJpk/Aen7GwbShPEqhKuiXUkR8jvIclbQmA0GACCo/s912/Mt-28-19.png' />"
+
+rdm[374] = "<img src='https://lh3.googleusercontent.com/-S7gzs20qOOw/VubIEaI4sKI/AAAAAAAAJpk/CehZMcEPab49BFrN8KE9g0Ou7f_8OtI8wCCo/s640/Mt-4-4.png' />"
+
+rdm[375] = "<img src='https://lh3.googleusercontent.com/-ewWoeJMx4SE/VubIFyvL0cI/AAAAAAAAJpk/HChmT1lFeGgsT_rHsv_uAqKHKQYtXFOyACCo/s640/Mt-7-7.png' />"
+
+rdm[376] = "<img src='https://lh3.googleusercontent.com/-Iw69Ogu6aRY/VubIdPRhD-I/AAAAAAAAJpw/Y63QMOSISqEupBn1TkH_LkISU_Tz9f_wQCCo/s640/1Cor-10-13a.png' />"
+
+rdm[377] = "<img src='https://lh3.googleusercontent.com/-xsHWCVxUnZA/VubIcPgDuhI/AAAAAAAAJpw/Tnh8QVa4oqscP-Pgp2_Sa6MmPHLbc7fUACCo/s640/2Cr-12-9-v2.png' />"
+
+rdm[378] = "<img src='https://lh3.googleusercontent.com/-Tjx4wHhvmc4/VubIdMFcJjI/AAAAAAAAJpw/gydmUJBRVr00yfUX0tPw-jw_WPpTX0UFwCCo/s640/2Cr-12-9.png' />"
+
+rdm[379] = "<img src='https://lh3.googleusercontent.com/-6EyR_tI0Ixw/VubIkYiT0iI/AAAAAAAAJp4/NmlcrAGsobg1ivtKm5L_wJUTRu4lYi5fQCCo/s640/Dt-10-24-V2.png' />"
+
+rdm[380] = "<img src='https://lh3.googleusercontent.com/-pY8mW09KPPE/VubIoDXHskI/AAAAAAAAJp4/nmEtjEfTliYJrMg8Oeh-KAsfLagO0ix7wCCo/s640/Dt-10-24.png' />"
+
+rdm[381] = "<img src='https://lh3.googleusercontent.com/-ApObGnUN6Kk/VubIoURfaFI/AAAAAAAAJp4/IZzIA3GWqDcvfWtRs3D8R8kGzHiTJrGXQCCo/s640/Ga-10-27.png' />"
+
+rdm[382] = "<img src='https://lh3.googleusercontent.com/-vGXyjCSYCTc/VubIuji2CXI/AAAAAAAAJpg/hjQ1-X5V5QUFX9uMw80-E9285Rp4KZQ-gCCo/s640/Gc-1-3.png' />"
+
+rdm[383] = "<img src='https://lh3.googleusercontent.com/-HctKu3HJLPo/VubIxkpRCHI/AAAAAAAAJp4/uEnsR2NULk8dm7oHLXbT8d3KUsNd81v1QCCo/s640/Lc-8-15.png' />"
+
+rdm[384] = "<img src='https://lh3.googleusercontent.com/-3Zlzg89Y0cs/VubIuUcrlrI/AAAAAAAAJpc/UiABgj57-V4xuPZCEViEIAS29EWD0jQIACCo/s640/Pl-4-4.png' />"
+
+rdm[385] = "<img src='https://lh3.googleusercontent.com/-1uhCg8ix68o/VubIzYgXW8I/AAAAAAAAJp4/bOGqjbChE3k3vuBGBMt6uLwkprkqOtdjgCCo/s912/Tv-119-105.png' />"
+
+nrdm = Math.random() * (rdm.length)
+nrdm = Math.floor(nrdm)
+document.write(rdm[nrdm])
+</script>
+
+</body>
+</html>
